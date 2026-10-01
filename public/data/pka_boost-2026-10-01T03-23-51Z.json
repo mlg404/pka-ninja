@@ -1,0 +1,7010 @@
+{
+  "capturedAt": "2026-10-01T03:23:51Z",
+  "opcode": 1556,
+  "messages": 2,
+  "decodeErrors": 0,
+  "recipeCount": 180,
+  "workshops": [
+    {
+      "type": 1,
+      "action": "catalog",
+      "id": 7,
+      "name": "Boost Stone Workshop",
+      "recipes": [
+        {
+          "id": 1001,
+          "outputClientId": 41893,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 14,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 154,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 224,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 182,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 4,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": "Novice Bug Stone"
+        },
+        {
+          "id": 1002,
+          "outputClientId": 41894,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 33,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 252,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 273,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 364,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 8,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": "Elemental Bug Stone"
+        },
+        {
+          "id": 1003,
+          "outputClientId": 41895,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 88,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 399,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 392,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 441,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 16,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": "Common Bug Stone"
+        },
+        {
+          "id": 1004,
+          "outputClientId": 41896,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 212,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 441,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 441,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 518,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 24,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": "Enhanced Bug Stone"
+        },
+        {
+          "id": 1005,
+          "outputClientId": 41897,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 396,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 609,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 511,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 651,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 24,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": "Potent Bug Stone"
+        },
+        {
+          "id": 1006,
+          "outputClientId": 41898,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 773,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 651,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 742,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 889,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 34,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": "Advanced Bug Stone"
+        },
+        {
+          "id": 1007,
+          "outputClientId": 41899,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 951,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 910,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 875,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 1001,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 38,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 1008,
+          "outputClientId": 41900,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 1253,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 973,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 1022,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 1057,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 46,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 1009,
+          "outputClientId": 41901,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 2347,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 1127,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 1260,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 1246,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 51,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 1010,
+          "outputClientId": 41902,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Bug Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "bug",
+          "ingredients": [
+            {
+              "itemId": 41695,
+              "count": 3156,
+              "name": "bug fragment"
+            },
+            {
+              "itemId": 35909,
+              "count": 1372,
+              "name": "Scythe"
+            },
+            {
+              "itemId": 35998,
+              "count": 1365,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 35913,
+              "count": 1610,
+              "name": "Pinsir Horn"
+            },
+            {
+              "itemId": 37866,
+              "count": 59,
+              "name": "Cocoon Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 2001,
+          "outputClientId": 41903,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 14,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 168,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 154,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 217,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 6,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": "Novice Dark Stone"
+        },
+        {
+          "id": 2002,
+          "outputClientId": 41904,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 33,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 196,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 259,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 406,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 8,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": "Elemental Dark Stone"
+        },
+        {
+          "id": 2003,
+          "outputClientId": 41905,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 88,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 399,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 308,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 448,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 12,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": "Common Dark Stone"
+        },
+        {
+          "id": 2004,
+          "outputClientId": 41906,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 212,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 448,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 476,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 504,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 22,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": "Enhanced Dark Stone"
+        },
+        {
+          "id": 2005,
+          "outputClientId": 41907,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 396,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 518,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 518,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 672,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 30,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": "Potent Dark Stone"
+        },
+        {
+          "id": 2006,
+          "outputClientId": 41908,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 773,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 847,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 763,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 819,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 36,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": "Advanced Dark Stone"
+        },
+        {
+          "id": 2007,
+          "outputClientId": 41909,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 951,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 889,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 868,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 1029,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 40,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 2008,
+          "outputClientId": 41910,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 1253,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 1078,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 1190,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 1099,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 42,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 2009,
+          "outputClientId": 41911,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 2347,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 1106,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 1288,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 1267,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 54,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 2010,
+          "outputClientId": 41912,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Dark Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "dark",
+          "ingredients": [
+            {
+              "itemId": 41696,
+              "count": 3156,
+              "name": "dark fragment"
+            },
+            {
+              "itemId": 36015,
+              "count": 1274,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 272,
+              "count": 1428,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36034,
+              "count": 1505,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 37863,
+              "count": 58,
+              "name": "Darkness Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 3001,
+          "outputClientId": 41913,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 14,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 112,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 231,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 350,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 6,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": "Novice Dragon Stone"
+        },
+        {
+          "id": 3002,
+          "outputClientId": 41914,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 33,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 210,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 294,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 399,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 12,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": "Elemental Dragon Stone"
+        },
+        {
+          "id": 3003,
+          "outputClientId": 41915,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 88,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 315,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 385,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 476,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 12,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": "Common Dragon Stone"
+        },
+        {
+          "id": 3004,
+          "outputClientId": 41916,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 212,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 483,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 406,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 546,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 22,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": "Enhanced Dragon Stone"
+        },
+        {
+          "id": 3005,
+          "outputClientId": 41917,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 396,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 525,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 560,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 595,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 29,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": "Potent Dragon Stone"
+        },
+        {
+          "id": 3006,
+          "outputClientId": 41918,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 773,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 770,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 665,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 868,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 35,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 3007,
+          "outputClientId": 41919,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 951,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 882,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 819,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 1029,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 40,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": "Fortified Dragon Stone"
+        },
+        {
+          "id": 3008,
+          "outputClientId": 41920,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 1253,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 924,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 1071,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 1092,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 42,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 3009,
+          "outputClientId": 41921,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 2347,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 1127,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 1253,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 1253,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 50,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 3010,
+          "outputClientId": 41922,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Dragon Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "dragon",
+          "ingredients": [
+            {
+              "itemId": 41697,
+              "count": 3156,
+              "name": "dragon fragment"
+            },
+            {
+              "itemId": 35934,
+              "count": 1568,
+              "name": "Dragonair Tail"
+            },
+            {
+              "itemId": 272,
+              "count": 1351,
+              "name": "shadow tail"
+            },
+            {
+              "itemId": 36016,
+              "count": 1554,
+              "name": "Sea Dragon Fin"
+            },
+            {
+              "itemId": 37867,
+              "count": 55,
+              "name": "Crystal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 4001,
+          "outputClientId": 41923,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 14,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 133,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 140,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 203,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 3,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": "Novice Electric Stone"
+        },
+        {
+          "id": 4002,
+          "outputClientId": 41924,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 33,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 266,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 294,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 364,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 7,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": "Elemental Electric Stone"
+        },
+        {
+          "id": 4003,
+          "outputClientId": 41925,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 88,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 343,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 357,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 441,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 16,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": "Common Electric Stone"
+        },
+        {
+          "id": 4004,
+          "outputClientId": 41926,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 212,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 497,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 427,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 518,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 24,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": "Enhanced Electric Stone"
+        },
+        {
+          "id": 4005,
+          "outputClientId": 41927,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 396,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 574,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 553,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 623,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 28,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": "Potent Electric Stone"
+        },
+        {
+          "id": 4006,
+          "outputClientId": 41928,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 773,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 728,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 700,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 693,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 32,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": "Advanced Electric Stone"
+        },
+        {
+          "id": 4007,
+          "outputClientId": 41929,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 951,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 875,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 924,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 1015,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 41,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 4008,
+          "outputClientId": 41930,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 1253,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 987,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 1029,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 1085,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 44,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 4009,
+          "outputClientId": 41931,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 2347,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 1015,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 1204,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 1127,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 48,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 4010,
+          "outputClientId": 41932,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Electric Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "electric",
+          "ingredients": [
+            {
+              "itemId": 41698,
+              "count": 3156,
+              "name": "electric fragment"
+            },
+            {
+              "itemId": 35812,
+              "count": 1442,
+              "name": "Electric Ear"
+            },
+            {
+              "itemId": 35911,
+              "count": 1386,
+              "name": "Electric Tail"
+            },
+            {
+              "itemId": 35921,
+              "count": 1673,
+              "name": "Electric Collar"
+            },
+            {
+              "itemId": 37856,
+              "count": 59,
+              "name": "Thunder Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 5001,
+          "outputClientId": 41933,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 14,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 119,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 217,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 196,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 5,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": "Novice Fairy Stone"
+        },
+        {
+          "id": 5002,
+          "outputClientId": 41934,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 33,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 252,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 252,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 413,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 11,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": "Elemental Fairy Stone"
+        },
+        {
+          "id": 5003,
+          "outputClientId": 41935,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 88,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 329,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 343,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 476,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 14,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": "Common Fairy Stone"
+        },
+        {
+          "id": 5004,
+          "outputClientId": 41936,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 212,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 490,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 497,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 511,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 24,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": "Enhanced Fairy Stone"
+        },
+        {
+          "id": 5005,
+          "outputClientId": 41937,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 396,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 602,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 511,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 574,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 28,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 5006,
+          "outputClientId": 41938,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 773,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 756,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 588,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 686,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 33,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": "Advanced Fairy Stone"
+        },
+        {
+          "id": 5007,
+          "outputClientId": 41939,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 951,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 896,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 791,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 1022,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 37,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 5008,
+          "outputClientId": 41940,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 1253,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 938,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 980,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 1078,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 44,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 5009,
+          "outputClientId": 41941,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 2347,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 1036,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 1169,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 1274,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 51,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 5010,
+          "outputClientId": 41942,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Fairy Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "fairy",
+          "ingredients": [
+            {
+              "itemId": 41699,
+              "count": 3156,
+              "name": "fairy fragment"
+            },
+            {
+              "itemId": 48316,
+              "count": 1337,
+              "name": "pink fairy bow"
+            },
+            {
+              "itemId": 48786,
+              "count": 1505,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 31388,
+              "count": 1386,
+              "name": "mystic petal"
+            },
+            {
+              "itemId": 37865,
+              "count": 58,
+              "name": "Fairy Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 6001,
+          "outputClientId": 41943,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 14,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 182,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 210,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 238,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 6,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": "Novice Fighting Stone"
+        },
+        {
+          "id": 6002,
+          "outputClientId": 41944,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 33,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 245,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 294,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 399,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 6,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": "Elemental Fighting Stone"
+        },
+        {
+          "id": 6003,
+          "outputClientId": 41945,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 88,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 322,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 385,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 476,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 15,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": "Common Fighting Stone"
+        },
+        {
+          "id": 6004,
+          "outputClientId": 41946,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 212,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 434,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 448,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 504,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 18,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": "Enhanced Fighting Stone"
+        },
+        {
+          "id": 6005,
+          "outputClientId": 41947,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 396,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 588,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 539,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 616,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 30,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": "Potent Fighting Stone"
+        },
+        {
+          "id": 6006,
+          "outputClientId": 41948,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 773,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 707,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 728,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 875,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 33,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": "Advanced Fighting Stone"
+        },
+        {
+          "id": 6007,
+          "outputClientId": 41949,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 951,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 903,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 798,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 924,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 41,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 6008,
+          "outputClientId": 41950,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 1253,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 959,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 1029,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 1057,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 48,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 6009,
+          "outputClientId": 41951,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 2347,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 1071,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 1148,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 1148,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 52,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 6010,
+          "outputClientId": 41952,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Fighting Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "fighting",
+          "ingredients": [
+            {
+              "itemId": 41700,
+              "count": 3156,
+              "name": "fighting fragment"
+            },
+            {
+              "itemId": 35893,
+              "count": 1274,
+              "name": "Punching Machine"
+            },
+            {
+              "itemId": 48161,
+              "count": 1400,
+              "name": "poison bladder"
+            },
+            {
+              "itemId": 35854,
+              "count": 1589,
+              "name": "Belt of Champion"
+            },
+            {
+              "itemId": 37860,
+              "count": 56,
+              "name": "Punch Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 7001,
+          "outputClientId": 41953,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 14,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 168,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 140,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 287,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 4,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": "Novice Fire Stone"
+        },
+        {
+          "id": 7002,
+          "outputClientId": 41954,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 33,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 252,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 259,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 399,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 11,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": "Elemental Fire Stone"
+        },
+        {
+          "id": 7003,
+          "outputClientId": 41955,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 88,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 329,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 378,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 483,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 18,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": "Common Fire Stone"
+        },
+        {
+          "id": 7004,
+          "outputClientId": 41956,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 212,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 476,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 434,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 525,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 24,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": "Enhanced Fire Stone"
+        },
+        {
+          "id": 7005,
+          "outputClientId": 41957,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 396,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 574,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 581,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 588,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 25,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": "Potent Fire Stone"
+        },
+        {
+          "id": 7006,
+          "outputClientId": 41958,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 773,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 805,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 658,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 756,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 32,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": "Advanced Fire Stone"
+        },
+        {
+          "id": 7007,
+          "outputClientId": 41959,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 951,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 861,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 945,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 945,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 37,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 7008,
+          "outputClientId": 41960,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 1253,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 931,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 1071,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 1057,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 45,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 7009,
+          "outputClientId": 41961,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 2347,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 1036,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 1225,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 1141,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 49,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 7010,
+          "outputClientId": 41962,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Fire Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "fire",
+          "ingredients": [
+            {
+              "itemId": 41701,
+              "count": 3156,
+              "name": "fire fragment"
+            },
+            {
+              "itemId": 36005,
+              "count": 1232,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 36015,
+              "count": 1463,
+              "name": "Dark Canine Horns"
+            },
+            {
+              "itemId": 35845,
+              "count": 1561,
+              "name": "Giant Piece of Fur"
+            },
+            {
+              "itemId": 37853,
+              "count": 59,
+              "name": "Fire Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 8001,
+          "outputClientId": 41963,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 14,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 189,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 161,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 364,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 5,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": "Novice Flying Stone"
+        },
+        {
+          "id": 8002,
+          "outputClientId": 41964,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 33,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 238,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 287,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 413,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 12,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": "Elemental Flying Stone"
+        },
+        {
+          "id": 8003,
+          "outputClientId": 41965,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 88,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 343,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 343,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 462,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 14,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": "Common Flying Stone"
+        },
+        {
+          "id": 8004,
+          "outputClientId": 41966,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 212,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 434,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 455,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 539,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 22,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": "Enhanced Flying Stone"
+        },
+        {
+          "id": 8005,
+          "outputClientId": 41967,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 396,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 595,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 581,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 588,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 29,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 8006,
+          "outputClientId": 41968,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 773,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 693,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 784,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 903,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 32,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": "Advanced Flying Stone"
+        },
+        {
+          "id": 8007,
+          "outputClientId": 41969,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 951,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 882,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 833,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 987,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 41,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": "Fortified Flying Stone"
+        },
+        {
+          "id": 8008,
+          "outputClientId": 41970,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 1253,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 924,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 1050,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 1057,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 48,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 8009,
+          "outputClientId": 41971,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 2347,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 1057,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 1183,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 1204,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 49,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 8010,
+          "outputClientId": 41972,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Flying Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "flying",
+          "ingredients": [
+            {
+              "itemId": 41702,
+              "count": 3156,
+              "name": "flying fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 1302,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35804,
+              "count": 1281,
+              "name": "Big Crest"
+            },
+            {
+              "itemId": 35792,
+              "count": 1603,
+              "name": "Fire Wing"
+            },
+            {
+              "itemId": 37869,
+              "count": 54,
+              "name": "Feather Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 9001,
+          "outputClientId": 41973,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 14,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 147,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 224,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 350,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 3,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": "Novice Ghost Stone"
+        },
+        {
+          "id": 9002,
+          "outputClientId": 41974,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 33,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 273,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 259,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 392,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 8,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": "Elemental Ghost Stone"
+        },
+        {
+          "id": 9003,
+          "outputClientId": 41975,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 88,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 294,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 343,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 469,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 14,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": "Common Ghost Stone"
+        },
+        {
+          "id": 9004,
+          "outputClientId": 41976,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 212,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 511,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 455,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 532,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 23,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": "Enhanced Ghost Stone"
+        },
+        {
+          "id": 9005,
+          "outputClientId": 41977,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 396,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 539,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 560,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 665,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 28,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": "Potent Ghost Stone"
+        },
+        {
+          "id": 9006,
+          "outputClientId": 41978,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 773,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 784,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 735,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 861,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 36,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": "Advanced Ghost Stone"
+        },
+        {
+          "id": 9007,
+          "outputClientId": 41979,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 951,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 875,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 938,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 1015,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 37,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 9008,
+          "outputClientId": 41980,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 1253,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 952,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 1064,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 1106,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 48,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 9009,
+          "outputClientId": 41981,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 2347,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 1036,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 1190,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 1197,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 53,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 9010,
+          "outputClientId": 41982,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Ghost Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "ghost",
+          "ingredients": [
+            {
+              "itemId": 41703,
+              "count": 3156,
+              "name": "ghost fragment"
+            },
+            {
+              "itemId": 48786,
+              "count": 1260,
+              "name": "yellow mimikyu head"
+            },
+            {
+              "itemId": 35986,
+              "count": 1407,
+              "name": "Miss Traces"
+            },
+            {
+              "itemId": 49413,
+              "count": 1526,
+              "name": "ghost hands"
+            },
+            {
+              "itemId": 37864,
+              "count": 55,
+              "name": "Ghost Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 10001,
+          "outputClientId": 41983,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 14,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 154,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 217,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 217,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 5,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": "Novice Grass Stone"
+        },
+        {
+          "id": 10002,
+          "outputClientId": 41984,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 33,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 245,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 252,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 385,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 7,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": "Elemental Grass Stone"
+        },
+        {
+          "id": 10003,
+          "outputClientId": 41985,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 88,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 308,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 315,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 434,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 15,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": "Common Grass Stone"
+        },
+        {
+          "id": 10004,
+          "outputClientId": 41986,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 212,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 469,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 462,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 546,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 22,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": "Enhanced Grass Stone"
+        },
+        {
+          "id": 10005,
+          "outputClientId": 41987,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 396,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 567,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 532,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 595,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 24,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": "Potent Grass Stone"
+        },
+        {
+          "id": 10006,
+          "outputClientId": 41988,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 773,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 672,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 707,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 679,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 36,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": "Advanced Grass Stone"
+        },
+        {
+          "id": 10007,
+          "outputClientId": 41989,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 951,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 896,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 854,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 1022,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 39,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 10008,
+          "outputClientId": 41990,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 1253,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 994,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 973,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 1085,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 43,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 10009,
+          "outputClientId": 41991,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 2347,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 1057,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 1218,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 1225,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 51,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 10010,
+          "outputClientId": 41992,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Grass Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "grass",
+          "ingredients": [
+            {
+              "itemId": 41704,
+              "count": 3156,
+              "name": "grass fragment"
+            },
+            {
+              "itemId": 35789,
+              "count": 1547,
+              "name": "Red Petal"
+            },
+            {
+              "itemId": 49544,
+              "count": 1302,
+              "name": "mane leaf"
+            },
+            {
+              "itemId": 49032,
+              "count": 1288,
+              "name": "piece of rock"
+            },
+            {
+              "itemId": 37855,
+              "count": 58,
+              "name": "Leaf Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 11001,
+          "outputClientId": 41993,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 14,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 126,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 245,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 196,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 6,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": "Novice Ground Stone"
+        },
+        {
+          "id": 11002,
+          "outputClientId": 41994,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 33,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 203,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 287,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 427,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 7,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": "Elemental Ground Stone"
+        },
+        {
+          "id": 11003,
+          "outputClientId": 41995,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 88,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 336,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 329,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 483,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 17,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": "Common Ground Stone"
+        },
+        {
+          "id": 11004,
+          "outputClientId": 41996,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 212,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 455,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 434,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 546,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 24,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": "Enhanced Ground Stone"
+        },
+        {
+          "id": 11005,
+          "outputClientId": 41997,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 396,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 595,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 546,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 609,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 25,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": "Potent Ground Stone"
+        },
+        {
+          "id": 11006,
+          "outputClientId": 41998,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 773,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 742,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 651,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 812,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 36,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": "Advanced Ground Stone"
+        },
+        {
+          "id": 11007,
+          "outputClientId": 41999,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 951,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 854,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 945,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 924,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 41,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 11008,
+          "outputClientId": 42000,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 1253,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 980,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 1099,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 1050,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 43,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 11009,
+          "outputClientId": 42001,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 2347,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 1050,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 1190,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 1232,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 54,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 11010,
+          "outputClientId": 42002,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Ground Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "ground",
+          "ingredients": [
+            {
+              "itemId": 41705,
+              "count": 3156,
+              "name": "ground fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 1575,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 49555,
+              "count": 1379,
+              "name": "gliscor claw"
+            },
+            {
+              "itemId": 35862,
+              "count": 1603,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37859,
+              "count": 54,
+              "name": "Earth Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 12001,
+          "outputClientId": 42003,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 14,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 154,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 231,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 210,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 3,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Novice Ice Stone"
+        },
+        {
+          "id": 12002,
+          "outputClientId": 42004,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 33,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 196,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 294,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 399,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 10,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Elemental Ice Stone"
+        },
+        {
+          "id": 12003,
+          "outputClientId": 42005,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 88,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 378,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 399,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 448,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 16,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Common Ice Stone"
+        },
+        {
+          "id": 12004,
+          "outputClientId": 42006,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 212,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 448,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 427,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 497,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 23,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Enhanced Ice Stone"
+        },
+        {
+          "id": 12005,
+          "outputClientId": 42007,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 396,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 609,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 539,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 602,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 27,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Potent Ice Stone"
+        },
+        {
+          "id": 12006,
+          "outputClientId": 42008,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 773,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 798,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 588,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 812,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 30,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Advanced Ice Stone"
+        },
+        {
+          "id": 12007,
+          "outputClientId": 42009,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 951,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 903,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 847,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 1001,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 36,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 12008,
+          "outputClientId": 42010,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 1253,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 973,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 1085,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 1043,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 45,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 12009,
+          "outputClientId": 42011,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 2347,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 1092,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 1190,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 1148,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 49,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 12010,
+          "outputClientId": 42012,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Ice Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "ice",
+          "ingredients": [
+            {
+              "itemId": 41706,
+              "count": 3156,
+              "name": "ice fragment"
+            },
+            {
+              "itemId": 35910,
+              "count": 1176,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35910,
+              "count": 1281,
+              "name": "Psychic Wig"
+            },
+            {
+              "itemId": 35917,
+              "count": 1316,
+              "name": "Lapras Fin"
+            },
+            {
+              "itemId": 37861,
+              "count": 56,
+              "name": "Ice Stone"
+            }
+          ],
+          "outputName": "Mystic Ice Stone"
+        },
+        {
+          "id": 13001,
+          "outputClientId": 42013,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 14,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 112,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 224,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 336,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 6,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Novice Normal Stone"
+        },
+        {
+          "id": 13002,
+          "outputClientId": 42014,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 33,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 224,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 259,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 406,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 12,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Elemental Normal Stone"
+        },
+        {
+          "id": 13003,
+          "outputClientId": 42015,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 88,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 392,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 378,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 441,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 12,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Common Normal Stone"
+        },
+        {
+          "id": 13004,
+          "outputClientId": 42016,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 212,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 455,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 483,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 532,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 24,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Enhanced Normal Stone"
+        },
+        {
+          "id": 13005,
+          "outputClientId": 42017,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 396,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 588,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 532,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 560,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 30,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Potent Normal Stone"
+        },
+        {
+          "id": 13006,
+          "outputClientId": 42018,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 773,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 791,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 630,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 854,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 34,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Advanced Normal Stone"
+        },
+        {
+          "id": 13007,
+          "outputClientId": 42019,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 951,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 854,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 875,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 966,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 39,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": "Fortified Normal Stone"
+        },
+        {
+          "id": 13008,
+          "outputClientId": 42020,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 1253,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 987,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 966,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 1078,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 43,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 13009,
+          "outputClientId": 42021,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 2347,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 1113,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 1183,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 1239,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 48,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 13010,
+          "outputClientId": 42022,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Normal Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "normal",
+          "ingredients": [
+            {
+              "itemId": 41707,
+              "count": 3156,
+              "name": "normal fragment"
+            },
+            {
+              "itemId": 36003,
+              "count": 1253,
+              "name": "Bear Claw"
+            },
+            {
+              "itemId": 36021,
+              "count": 1344,
+              "name": "Smeargle Tail"
+            },
+            {
+              "itemId": 35871,
+              "count": 1302,
+              "name": "Dodrio Feather"
+            },
+            {
+              "itemId": 37857,
+              "count": 58,
+              "name": "Heart Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 14001,
+          "outputClientId": 42023,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 14,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 112,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 182,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 343,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 4,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": "Novice Poison Stone"
+        },
+        {
+          "id": 14002,
+          "outputClientId": 42024,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 33,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 259,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 280,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 371,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 8,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": "Elemental Poison Stone"
+        },
+        {
+          "id": 14003,
+          "outputClientId": 42025,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 88,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 294,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 378,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 434,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 12,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": "Common Poison Stone"
+        },
+        {
+          "id": 14004,
+          "outputClientId": 42026,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 212,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 469,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 462,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 504,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 20,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": "Enhanced Poison Stone"
+        },
+        {
+          "id": 14005,
+          "outputClientId": 42027,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 396,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 609,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 560,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 595,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 26,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": "Potent Poison Stone"
+        },
+        {
+          "id": 14006,
+          "outputClientId": 42028,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 773,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 833,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 609,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 910,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 36,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": "Advanced Poison Stone"
+        },
+        {
+          "id": 14007,
+          "outputClientId": 42029,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 951,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 861,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 833,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 1029,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 37,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 14008,
+          "outputClientId": 42030,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 1253,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 924,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 1127,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 1057,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 48,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 14009,
+          "outputClientId": 42031,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 2347,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 1015,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 1239,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 1239,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 49,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 14010,
+          "outputClientId": 42032,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Poison Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "poison",
+          "ingredients": [
+            {
+              "itemId": 41708,
+              "count": 3156,
+              "name": "poison fragment"
+            },
+            {
+              "itemId": 35817,
+              "count": 1372,
+              "name": "Queen Ear"
+            },
+            {
+              "itemId": 35859,
+              "count": 1456,
+              "name": "Giant Ruby"
+            },
+            {
+              "itemId": 35880,
+              "count": 1638,
+              "name": "Ectoplasm"
+            },
+            {
+              "itemId": 37870,
+              "count": 54,
+              "name": "Venom Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 15001,
+          "outputClientId": 42033,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 14,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 140,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 182,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 364,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 4,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": "Novice Psychic Stone"
+        },
+        {
+          "id": 15002,
+          "outputClientId": 42034,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 33,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 245,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 287,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 385,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 6,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": "Elemental Psychic Stone"
+        },
+        {
+          "id": 15003,
+          "outputClientId": 42035,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 88,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 287,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 399,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 483,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 16,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": "Common Psychic Stone"
+        },
+        {
+          "id": 15004,
+          "outputClientId": 42036,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 212,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 420,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 420,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 497,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 23,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": "Enhanced Psychic Stone"
+        },
+        {
+          "id": 15005,
+          "outputClientId": 42037,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 396,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 553,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 553,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 560,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 27,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": "Potent Psychic Stone"
+        },
+        {
+          "id": 15006,
+          "outputClientId": 42038,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 773,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 728,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 707,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 819,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 30,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": "Advanced Psychic Stone"
+        },
+        {
+          "id": 15007,
+          "outputClientId": 42039,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 951,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 903,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 826,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 1015,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 37,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 15008,
+          "outputClientId": 42040,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 1253,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 952,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 1029,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 1071,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 44,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 15009,
+          "outputClientId": 42041,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 2347,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 1099,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 1162,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 1204,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 54,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 15010,
+          "outputClientId": 42042,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Psychic Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "psychic",
+          "ingredients": [
+            {
+              "itemId": 41709,
+              "count": 3156,
+              "name": "psychic fragment"
+            },
+            {
+              "itemId": 35982,
+              "count": 1183,
+              "name": "Psychic Ears"
+            },
+            {
+              "itemId": 35988,
+              "count": 1295,
+              "name": "Two-Eyed Black Tail"
+            },
+            {
+              "itemId": 35851,
+              "count": 1561,
+              "name": "Psychic Moustache"
+            },
+            {
+              "itemId": 37862,
+              "count": 59,
+              "name": "Enigma Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 16001,
+          "outputClientId": 42043,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 14,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 189,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 196,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 364,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 5,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": "Novice Rock Stone"
+        },
+        {
+          "id": 16002,
+          "outputClientId": 42044,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 33,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 245,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 266,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 371,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 12,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": "Elemental Rock Stone"
+        },
+        {
+          "id": 16003,
+          "outputClientId": 42045,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 88,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 378,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 343,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 455,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 12,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": "Common Rock Stone"
+        },
+        {
+          "id": 16004,
+          "outputClientId": 42046,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 212,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 420,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 490,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 546,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 21,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": "Enhanced Rock Stone"
+        },
+        {
+          "id": 16005,
+          "outputClientId": 42047,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 396,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 574,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 532,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 595,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 25,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": "Potent Rock Stone"
+        },
+        {
+          "id": 16006,
+          "outputClientId": 42048,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 773,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 742,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 721,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 693,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 33,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": "Advanced Rock Stone"
+        },
+        {
+          "id": 16007,
+          "outputClientId": 42049,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 951,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 903,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 903,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 980,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 38,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 16008,
+          "outputClientId": 42050,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 1253,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 987,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 1036,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 1106,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 48,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 16009,
+          "outputClientId": 42051,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 2347,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 1120,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 1218,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 1162,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 52,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 16010,
+          "outputClientId": 42052,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Rock Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "rock",
+          "ingredients": [
+            {
+              "itemId": 41710,
+              "count": 3156,
+              "name": "rock fragment"
+            },
+            {
+              "itemId": 36034,
+              "count": 1407,
+              "name": "Tyranitar Tail"
+            },
+            {
+              "itemId": 36005,
+              "count": 1428,
+              "name": "Magma Shell"
+            },
+            {
+              "itemId": 35862,
+              "count": 1610,
+              "name": "Stone Rocks"
+            },
+            {
+              "itemId": 37858,
+              "count": 60,
+              "name": "Rock Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 17001,
+          "outputClientId": 42053,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 14,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 168,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 210,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 343,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 6,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": "Novice Steel Stone"
+        },
+        {
+          "id": 17002,
+          "outputClientId": 42054,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 33,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 238,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 266,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 406,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 10,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": "Elemental Steel Stone"
+        },
+        {
+          "id": 17003,
+          "outputClientId": 42055,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 88,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 364,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 399,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 434,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 15,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": "Common Steel Stone"
+        },
+        {
+          "id": 17004,
+          "outputClientId": 42056,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 212,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 476,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 476,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 546,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 19,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": "Enhanced Steel Stone"
+        },
+        {
+          "id": 17005,
+          "outputClientId": 42057,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 396,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 525,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 560,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 567,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 28,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": "Potent Steel Stone"
+        },
+        {
+          "id": 17006,
+          "outputClientId": 42058,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 773,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 812,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 784,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 910,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 36,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": "Advanced Steel Stone"
+        },
+        {
+          "id": 17007,
+          "outputClientId": 42059,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 951,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 889,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 812,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 952,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 41,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 17008,
+          "outputClientId": 42060,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 1253,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 1029,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 1197,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 1169,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 45,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 17009,
+          "outputClientId": 42061,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 2347,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 1169,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 1232,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 1337,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 50,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 17010,
+          "outputClientId": 42062,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Steel Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "steel",
+          "ingredients": [
+            {
+              "itemId": 41711,
+              "count": 3156,
+              "name": "steel fragment"
+            },
+            {
+              "itemId": 36013,
+              "count": 1204,
+              "name": "Steel Wing"
+            },
+            {
+              "itemId": 35994,
+              "count": 1428,
+              "name": "Steelix Tail"
+            },
+            {
+              "itemId": 35998,
+              "count": 1722,
+              "name": "Scizor Claw"
+            },
+            {
+              "itemId": 37868,
+              "count": 55,
+              "name": "Metal Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 18001,
+          "outputClientId": 42063,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Novice Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +0 and +5 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 14,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 175,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 224,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 224,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 6,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": "Novice Water Stone"
+        },
+        {
+          "id": 18002,
+          "outputClientId": 42064,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Elemental Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +6 and +10 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 33,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 210,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 280,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 378,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 10,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": "Elemental Water Stone"
+        },
+        {
+          "id": 18003,
+          "outputClientId": 42065,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Common Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +11 and +15 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 88,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 343,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 378,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 469,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 17,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": "Common Water Stone"
+        },
+        {
+          "id": 18004,
+          "outputClientId": 42066,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Enhanced Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +16 and +20 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 212,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 413,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 441,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 553,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 21,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": "Enhanced Water Stone"
+        },
+        {
+          "id": 18005,
+          "outputClientId": 42067,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Potent Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +21 and +25 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 396,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 532,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 504,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 588,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 30,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": "Potent Water Stone"
+        },
+        {
+          "id": 18006,
+          "outputClientId": 42068,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Advanced Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +26 and +30 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 773,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 847,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 616,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 791,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 33,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 18007,
+          "outputClientId": 42069,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Fortified Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +31 and +35 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 951,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 896,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 910,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 1008,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 41,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 18008,
+          "outputClientId": 42070,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Supreme Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +36 and +40 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 1253,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 931,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 1113,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 1071,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 42,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 18009,
+          "outputClientId": 42071,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Celestial Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +41 and +45 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 2347,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 1106,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 1141,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 1176,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 50,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": null
+        },
+        {
+          "id": 18010,
+          "outputClientId": 42072,
+          "outputQnt": 1,
+          "timePerUnit": 1,
+          "name": "Mystic Water Stone",
+          "description": "You can boost your Pokemon by 1 level between +46 and +50 boosts with this stone.",
+          "category": "water",
+          "ingredients": [
+            {
+              "itemId": 41712,
+              "count": 3156,
+              "name": "water fragment"
+            },
+            {
+              "itemId": 35946,
+              "count": 1141,
+              "name": "Red Hair"
+            },
+            {
+              "itemId": 35848,
+              "count": 1449,
+              "name": "Big Fist Gloves"
+            },
+            {
+              "itemId": 35985,
+              "count": 1498,
+              "name": "Slowking Necklace"
+            },
+            {
+              "itemId": 37854,
+              "count": 59,
+              "name": "Water Stone"
+            }
+          ],
+          "outputName": null
+        }
+      ],
+      "seenAt": 1790825031.4655693
+    }
+  ],
+  "progress": [
+    {
+      "type": 2,
+      "action": "progress",
+      "workshopId": 7,
+      "entries": [],
+      "stash": [
+        {
+          "clientId": 41703,
+          "count": 0
+        },
+        {
+          "clientId": 48786,
+          "count": 0
+        },
+        {
+          "clientId": 35986,
+          "count": 0
+        },
+        {
+          "clientId": 49413,
+          "count": 0
+        },
+        {
+          "clientId": 37864,
+          "count": 0
+        },
+        {
+          "clientId": 41699,
+          "count": 0
+        },
+        {
+          "clientId": 48316,
+          "count": 0
+        },
+        {
+          "clientId": 31388,
+          "count": 0
+        },
+        {
+          "clientId": 37865,
+          "count": 0
+        },
+        {
+          "clientId": 41700,
+          "count": 0
+        },
+        {
+          "clientId": 35893,
+          "count": 0
+        },
+        {
+          "clientId": 48161,
+          "count": 0
+        },
+        {
+          "clientId": 35854,
+          "count": 0
+        },
+        {
+          "clientId": 37860,
+          "count": 8
+        },
+        {
+          "clientId": 41701,
+          "count": 0
+        },
+        {
+          "clientId": 36005,
+          "count": 0
+        },
+        {
+          "clientId": 36015,
+          "count": 0
+        },
+        {
+          "clientId": 35845,
+          "count": 0
+        },
+        {
+          "clientId": 37853,
+          "count": 0
+        },
+        {
+          "clientId": 41709,
+          "count": 0
+        },
+        {
+          "clientId": 35982,
+          "count": 0
+        },
+        {
+          "clientId": 35988,
+          "count": 0
+        },
+        {
+          "clientId": 35851,
+          "count": 0
+        },
+        {
+          "clientId": 37862,
+          "count": 0
+        },
+        {
+          "clientId": 41711,
+          "count": 365
+        },
+        {
+          "clientId": 36013,
+          "count": 143
+        },
+        {
+          "clientId": 35994,
+          "count": 0
+        },
+        {
+          "clientId": 35998,
+          "count": 0
+        },
+        {
+          "clientId": 37868,
+          "count": 6
+        },
+        {
+          "clientId": 41704,
+          "count": 0
+        },
+        {
+          "clientId": 35789,
+          "count": 0
+        },
+        {
+          "clientId": 49544,
+          "count": 0
+        },
+        {
+          "clientId": 49032,
+          "count": 0
+        },
+        {
+          "clientId": 37855,
+          "count": 0
+        },
+        {
+          "clientId": 41698,
+          "count": 0
+        },
+        {
+          "clientId": 35812,
+          "count": 0
+        },
+        {
+          "clientId": 35911,
+          "count": 0
+        },
+        {
+          "clientId": 35921,
+          "count": 0
+        },
+        {
+          "clientId": 37856,
+          "count": 0
+        },
+        {
+          "clientId": 41696,
+          "count": 179
+        },
+        {
+          "clientId": 272,
+          "count": 0
+        },
+        {
+          "clientId": 36034,
+          "count": 0
+        },
+        {
+          "clientId": 37863,
+          "count": 0
+        },
+        {
+          "clientId": 41695,
+          "count": 0
+        },
+        {
+          "clientId": 35909,
+          "count": 0
+        },
+        {
+          "clientId": 35913,
+          "count": 0
+        },
+        {
+          "clientId": 37866,
+          "count": 0
+        },
+        {
+          "clientId": 41707,
+          "count": 193
+        },
+        {
+          "clientId": 36003,
+          "count": 0
+        },
+        {
+          "clientId": 36021,
+          "count": 0
+        },
+        {
+          "clientId": 35871,
+          "count": 0
+        },
+        {
+          "clientId": 37857,
+          "count": 15
+        },
+        {
+          "clientId": 41712,
+          "count": 0
+        },
+        {
+          "clientId": 35946,
+          "count": 0
+        },
+        {
+          "clientId": 35848,
+          "count": 0
+        },
+        {
+          "clientId": 35985,
+          "count": 0
+        },
+        {
+          "clientId": 37854,
+          "count": 0
+        },
+        {
+          "clientId": 41702,
+          "count": 0
+        },
+        {
+          "clientId": 35804,
+          "count": 1200
+        },
+        {
+          "clientId": 35792,
+          "count": 0
+        },
+        {
+          "clientId": 37869,
+          "count": 0
+        },
+        {
+          "clientId": 41710,
+          "count": 148
+        },
+        {
+          "clientId": 35862,
+          "count": 0
+        },
+        {
+          "clientId": 37858,
+          "count": 10
+        },
+        {
+          "clientId": 41705,
+          "count": 0
+        },
+        {
+          "clientId": 35817,
+          "count": 0
+        },
+        {
+          "clientId": 49555,
+          "count": 0
+        },
+        {
+          "clientId": 37859,
+          "count": 11
+        },
+        {
+          "clientId": 41697,
+          "count": 0
+        },
+        {
+          "clientId": 35934,
+          "count": 0
+        },
+        {
+          "clientId": 36016,
+          "count": 0
+        },
+        {
+          "clientId": 37867,
+          "count": 16
+        },
+        {
+          "clientId": 41708,
+          "count": 0
+        },
+        {
+          "clientId": 35859,
+          "count": 0
+        },
+        {
+          "clientId": 35880,
+          "count": 0
+        },
+        {
+          "clientId": 37870,
+          "count": 0
+        },
+        {
+          "clientId": 41706,
+          "count": 0
+        },
+        {
+          "clientId": 35910,
+          "count": 0
+        },
+        {
+          "clientId": 35917,
+          "count": 0
+        },
+        {
+          "clientId": 37861,
+          "count": 0
+        }
+      ],
+      "seenAt": 1790825031.4895337
+    }
+  ],
+  "refreshes": []
+}
