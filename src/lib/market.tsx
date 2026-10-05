@@ -1,13 +1,16 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { listDataFiles } from "./dataFiles";
 import {
   buildMarket,
   dedupeSnapshots,
   parsePkaSnapshot,
+  sortServers,
   type PkaItem,
   type PkaOffer,
   type PkaSnapshot,
 } from "./pka";
+
+const SERVER_KEY = "pka-ninja-server";
 
 type MarketState = {
   capturedAt: string | null;
@@ -16,6 +19,9 @@ type MarketState = {
   items: PkaItem[];
   loading: boolean;
   error: string | null;
+  servers: string[];
+  server: string;
+  setServer: (server: string) => void;
 };
 
 const EMPTY: MarketState = {
@@ -25,6 +31,9 @@ const EMPTY: MarketState = {
   items: [],
   loading: true,
   error: null,
+  servers: [],
+  server: "",
+  setServer: () => {},
 };
 
 const MarketContext = createContext<MarketState>(EMPTY);
@@ -47,10 +56,19 @@ async function fetchSnapshot(file: string): Promise<PkaSnapshot | null> {
   return parsePkaSnapshot(data, file);
 }
 
+function storedServer(): string {
+  try {
+    return localStorage.getItem(SERVER_KEY) ?? "";
+  } catch {
+    return "";
+  }
+}
+
 export function MarketProvider({ children }: { children: ReactNode }) {
   const [snapshots, setSnapshots] = useState<PkaSnapshot[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [server, setServerState] = useState(storedServer);
 
   useEffect(() => {
     let cancelled = false;
@@ -76,19 +94,35 @@ export function MarketProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  const setServer = useCallback((next: string) => {
+    setServerState(next);
+    try {
+      if (next) localStorage.setItem(SERVER_KEY, next);
+      else localStorage.removeItem(SERVER_KEY);
+    } catch {
+      /* ignore private mode */
+    }
+  }, []);
+
   const value = useMemo<MarketState>(() => {
-    if (!snapshots.length) return { ...EMPTY, loading, error };
-    const latest = snapshots[snapshots.length - 1];
-    const market = buildMarket(snapshots);
+    const servers = sortServers(new Set(snapshots.map((row) => row.server).filter(Boolean)));
+    const active = server && servers.includes(server) ? server : "";
+    const scoped = active ? snapshots.filter((row) => row.server === active) : snapshots;
+    if (!scoped.length) return { ...EMPTY, loading, error, servers, server: active, setServer };
+    const latest = scoped[scoped.length - 1];
+    const market = buildMarket(scoped);
     return {
       capturedAt: latest.capturedAt,
-      snapshots,
+      snapshots: scoped,
       offers: market.offers,
       items: market.items,
       loading: false,
       error,
+      servers,
+      server: active,
+      setServer,
     };
-  }, [snapshots, loading, error]);
+  }, [snapshots, loading, error, server, setServer]);
 
   return <MarketContext.Provider value={value}>{children}</MarketContext.Provider>;
 }

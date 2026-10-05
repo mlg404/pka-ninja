@@ -2,7 +2,8 @@ import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Pagination } from "../components/Pagination";
 import { SearchInput } from "../components/SearchInput";
-import { formatCount, formatMoney } from "../lib/format";
+import { Sparkline } from "../components/Sparkline";
+import { cls, formatCount, formatMoney, formatPct } from "../lib/format";
 import { useMarket } from "../lib/market";
 import { fold, itemPath, matchesQuery, paginate } from "../lib/pka";
 
@@ -53,7 +54,8 @@ export function PokemonPage() {
               <th className="text-right">Mín</th>
               <th className="text-right">Mediana</th>
               <th className="text-right">Máx</th>
-              <th className="text-right">Média 30d</th>
+              <th className="text-right">Δ</th>
+              <th>Preço</th>
             </tr>
           </thead>
           <tbody>
@@ -69,7 +71,12 @@ export function PokemonPage() {
                 <td className="num text-right">{formatMoney(row.min)}</td>
                 <td className="num text-right font-semibold text-gold">{formatMoney(row.median)}</td>
                 <td className="num text-right">{formatMoney(row.max)}</td>
-                <td className="num text-right">{row.count30 && row.avg30 != null ? formatMoney(row.avg30) : "—"}</td>
+                <td className={cls("num text-right", (row.changePct ?? 0) > 0 ? "up" : (row.changePct ?? 0) < 0 ? "down" : "text-slate-400")}>
+                  {formatPct(row.changePct)}
+                </td>
+                <td>
+                  <Sparkline values={row.spark} />
+                </td>
               </tr>
             ))}
           </tbody>

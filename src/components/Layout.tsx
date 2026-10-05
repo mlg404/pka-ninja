@@ -6,19 +6,21 @@ import { isOnMarket } from "../lib/pka";
 const LINKS = [
   { to: "/", label: "Economia", end: true },
   { to: "/items", label: "Itens" },
+  { to: "/oportunidades", label: "Oportunidades" },
   { to: "/listings", label: "Listagens" },
   { to: "/pokemon", label: "Pokémon" },
   { to: "/boost", label: "Boost" },
+  { to: "/stash", label: "Stash" },
 ];
 
 export function Layout() {
-  const { capturedAt, snapshots, offers, loading } = useMarket();
+  const { capturedAt, snapshots, offers, loading, servers, server, setServer } = useMarket();
   const live = offers.reduce((sum, offer) => sum + (isOnMarket(offer) ? 1 : 0), 0);
 
   return (
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-20 border-b border-line/80 bg-ink/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
           <NavLink to="/" className="flex items-center gap-2.5 shrink-0">
             <span className="grid h-8 w-8 place-items-center rounded-lg bg-gold text-ink font-bold">
               忍
@@ -45,6 +47,19 @@ export function Layout() {
               </NavLink>
             ))}
           </nav>
+          <select
+            value={server}
+            onChange={(event) => setServer(event.target.value)}
+            aria-label="Servidor"
+            className="shrink-0 rounded-lg border border-line bg-panel px-3 py-1.5 text-sm"
+          >
+            <option value="">Todos servidores</option>
+            {servers.map((name) => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
+          </select>
           <div className="hidden text-right text-xs text-slate-400 sm:block">
             {loading && "carregando…"}
             {capturedAt && (

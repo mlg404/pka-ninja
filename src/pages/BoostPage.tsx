@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
-import { cls, formatFullMoney, formatIso, formatMoney } from "../lib/format";
+import { Link, useSearchParams } from "react-router-dom";
+import { cls, formatCount, formatFullMoney, formatIso, formatMoney } from "../lib/format";
 import {
   BOOST_ELEMENTS,
   BOOST_TIERS,
@@ -37,6 +37,11 @@ export function BoostPage() {
   const [slotNames, setSlotNames] = useState<string[]>(() => initialSlots(BOOST_ELEMENTS[0]));
   const [qty, setQty] = useState<Record<string, string>>({});
   const [prices, setPrices] = useState<PriceDrafts>({});
+  const [params] = useSearchParams();
+  const [makeRaw, setMakeRaw] = useState(() => {
+    const initial = parseCount(params.get("qtd") ?? "");
+    return initial ? String(initial) : "1";
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -131,6 +136,8 @@ export function BoostPage() {
   const productUnit =
     productDraft != null ? parseAmount(productDraft) : product && product.min > 0 ? product.min : null;
   const craft = lines.every((line) => line.cost != null) ? lines.reduce((sum, line) => sum + (line.cost ?? 0), 0) : null;
+  const make = parseCount(makeRaw);
+  const needs = materialNeeds(lines, make);
   const missingQty = lines.some((line) => line.quantity == null);
   const missingPrice = lines.some((line) => line.unit == null) || productUnit == null;
 
@@ -354,9 +361,111 @@ export function BoostPage() {
           )}
         </div>
       </section>
+
+      <section className="rounded-xl border border-line bg-panel p-4">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-[11px] uppercase tracking-wide text-slate-500">Lista de compra</p>
+            <h2 className="text-lg font-semibold">Quantos quer fazer</h2>
+          </div>
+          <label className="text-xs text-slate-400">
+            Quantidade de {productName}
+            <input
+              inputMode="numeric"
+              value={makeRaw}
+              onChange={(event) => setMakeRaw(event.target.value)}
+              className="mt-1 w-28 rounded-lg border border-line bg-ink px-3 py-2 text-sm text-slate-100 outline-none focus:border-gold/70"
+            />
+          </label>
+        </div>
+        <div className="table-wrap mt-4">
+          <table>
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th className="text-right">Por pedra</th>
+                <th className="text-right">Total</th>
+                <th className="text-right">Preço un.</th>
+                <th className="text-right">Gasto</th>
+              </tr>
+            </thead>
+            <tbody>
+              {needs.map((need) => (
+                <tr key={need.name}>
+                  <td className="font-medium">{need.name}</td>
+                  <td className="num text-right">{formatCount(need.per)}</td>
+                  <td className="num text-right">{make == null ? "—" : formatCount(need.total)}</td>
+                  <td className="num text-right text-slate-300">{need.unit == null ? "—" : formatMoney(need.unit)}</td>
+                  <td className="num text-right font-semibold text-gold">
+                    {need.cost == null ? "—" : formatFullMoney(need.cost)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <div>
+            <p className="text-[11px] uppercase tracking-wide text-slate-500">Pedras</p>
+            <p className="mt-1 text-xl font-semibold">{make == null ? "—" : formatCount(make)}</p>
+          </div>
+          <div>
+            <p className="text-[11px] uppercase tracking-wide text-slate-500">Gasto craftando</p>
+            <p className="mt-1 text-xl font-semibold">
+              {make != null && craft != null ? formatFullMoney(craft * make) : "—"}
+            </p>
+          </div>
+          <div>
+            <p className="text-[11px] uppercase tracking-wide text-slate-500">Se comprar prontas</p>
+            <p className="mt-1 text-xl font-semibold">
+              {make != null && productUnit != null ? formatFullMoney(productUnit * make) : "—"}
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
+
+function parseCount(raw: string): number | null {
+  const digits = raw.replace(/[^\d]/g, "");
+  if (!digits) return null;
+  const value = Number(digits);
+  return value > 0 ? value : null;
+}
+
+function materialNeeds(lines: Line[], make: number | null): Need[] {
+  const groups = new Map<string, Need>();
+  for (const line of lines) {
+    const key = fold(line.marketName);
+    const per = line.quantity ?? 0;
+    const existing = groups.get(key);
+    if (!existing) {
+      groups.set(key, {
+        name: line.listed?.name || line.marketName,
+        per,
+        total: make == null ? 0 : per * make,
+        unit: line.unit,
+        cost: line.cost == null || make == null ? null : line.cost * make,
+      });
+      continue;
+    }
+    existing.per += per;
+    existing.total = make == null ? 0 : existing.per * make;
+    if (existing.unit !== line.unit) existing.unit = null;
+    if (existing.cost == null || line.cost == null || make == null) existing.cost = null;
+    else existing.cost += line.cost * make;
+  }
+  return [...groups.values()];
+}
+
+type Need = {
+  name: string;
+  per: number;
+  total: number;
+  unit: number | null;
+  cost: number | null;
+};
 
 function pct(part: number, whole: number): string {
   if (!whole) return "0%";

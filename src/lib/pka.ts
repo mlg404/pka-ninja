@@ -21,6 +21,8 @@ export type PkaOffer = {
   max30: number;
   count30: number;
   page: number;
+  /** Capture server, empty when the file has no `server` field. */
+  server: string;
   /** True when a later complete capture no longer contains this offer. */
   removed: boolean;
 };
@@ -58,6 +60,8 @@ export type PkaItem = {
   history: PricePoint[];
   spark: number[];
   changePct: number | null;
+  cheapestChangePct: number | null;
+  spreadPct: number;
 };
 
 export type PricePoint = {
@@ -72,9 +76,26 @@ export type PkaSnapshot = {
   file: string;
   capturedAt: string;
   t: number;
+  /** Empty when the capture was saved before servers were recorded. */
+  server: string;
   complete: boolean;
   offers: PkaOffer[];
 };
+
+const SERVER_ORDER = ["Moon", "Sun", "Titan", "Titan2", "Titan3", "Eclipse"];
+
+export function sortServers(names: Iterable<string>): string[] {
+  return [...names].sort((a, b) => {
+    const ia = SERVER_ORDER.indexOf(a);
+    const ib = SERVER_ORDER.indexOf(b);
+    if (ia !== -1 || ib !== -1) {
+      if (ia === -1) return 1;
+      if (ib === -1) return -1;
+      return ia - ib;
+    }
+    return a.localeCompare(b, "pt");
+  });
+}
 
 export type ExpiredFilter = "all" | "active" | "expired";
 export type OfferStatus = "active" | "expired" | "removed";
@@ -128,7 +149,7 @@ function shared(values: number[]): number | null {
   return values.every((value) => value === first) ? first : null;
 }
 
-function toOffer(raw: Record<string, unknown>, index: number): PkaOffer | null {
+function toOffer(raw: Record<string, unknown>, index: number, server = ""): PkaOffer | null {
   const itemName = text(raw.item_name);
   if (!itemName) return null;
   return {
@@ -152,6 +173,7 @@ function toOffer(raw: Record<string, unknown>, index: number): PkaOffer | null {
     max30: num(raw.max30) ?? 0,
     count30: num(raw.count30) ?? 0,
     page: num(raw.page) ?? 0,
+    server,
     removed: false,
   };
 }
@@ -199,19 +221,40 @@ export function aggregateItems(offers: PkaOffer[], histories?: Map<string, Price
       description,
       history,
       spark: history.map((point) => point.median).filter((value) => value > 0),
-      changePct: medianChangePct(history),
+      changePct: fieldChangePct(history, "median"),
+      cheapestChangePct: fieldChangePct(history, "min"),
+      spreadPct:
+        livePrices.length > 1 && livePrices[0] > 0
+          ? ((livePrices[livePrices.length - 1] - livePrices[0]) / livePrices[0]) * 100
+          : 0,
     });
   }
   return items.sort((a, b) => b.active - a.active || b.listings - a.listings || a.name.localeCompare(b.name));
 }
 
-function medianChangePct(history: PricePoint[]): number | null {
-  const priced = history.filter((point) => point.median > 0);
+function fieldChangePct(history: PricePoint[], field: "median" | "min"): number | null {
+  const priced = history.filter((point) => point[field] > 0);
   if (priced.length < 2) return null;
-  const first = priced[0].median;
-  const last = priced[priced.length - 1].median;
+  const first = priced[0][field];
+  const last = priced[priced.length - 1][field];
   if (first <= 0) return null;
   return ((last - first) / first) * 100;
+}
+
+export type OpportunityKind = "sell" | "buy";
+
+export function opportunityItems(items: PkaItem[], kind: OpportunityKind): PkaItem[] {
+  const rows = items.filter(
+    (item) => item.kind !== "pokemon" && item.cheapestChangePct != null && item.active > 0 && item.min > 0,
+  );
+  if (kind === "sell") {
+    return rows
+      .filter((item) => (item.cheapestChangePct ?? 0) > 0)
+      .sort((a, b) => (b.cheapestChangePct ?? 0) - (a.cheapestChangePct ?? 0));
+  }
+  return rows
+    .filter((item) => (item.cheapestChangePct ?? 0) < 0)
+    .sort((a, b) => (a.cheapestChangePct ?? 0) - (b.cheapestChangePct ?? 0));
 }
 
 export function snapshotUnix(capturedAt: string): number {
@@ -226,8 +269,9 @@ export function sortSnapshots(snapshots: PkaSnapshot[]): PkaSnapshot[] {
 export function dedupeSnapshots(snapshots: PkaSnapshot[]): PkaSnapshot[] {
   const byKey = new Map<string, PkaSnapshot>();
   for (const snapshot of snapshots) {
-    const existing = byKey.get(snapshot.capturedAt);
-    if (!existing || snapshot.offers.length > existing.offers.length) byKey.set(snapshot.capturedAt, snapshot);
+    const key = `${snapshot.server}\0${snapshot.capturedAt}`;
+    const existing = byKey.get(key);
+    if (!existing || snapshot.offers.length > existing.offers.length) byKey.set(key, snapshot);
   }
   return sortSnapshots([...byKey.values()]);
 }
@@ -250,18 +294,20 @@ function snapshotComplete(data: unknown): boolean {
 
 export function parsePkaSnapshot(data: unknown, file = ""): PkaSnapshot | null {
   if (!data || typeof data !== "object") return null;
-  const row = data as { capturedAt?: unknown; listings?: unknown };
+  const row = data as { capturedAt?: unknown; listings?: unknown; server?: unknown };
   if (typeof row.capturedAt !== "string" || !Array.isArray(row.listings)) return null;
+  const server = text(row.server);
   const offers: PkaOffer[] = [];
   row.listings.forEach((entry, index) => {
     if (!entry || typeof entry !== "object") return;
-    const offer = toOffer(entry as Record<string, unknown>, index);
+    const offer = toOffer(entry as Record<string, unknown>, index, server);
     if (offer) offers.push(offer);
   });
   return {
     file,
     capturedAt: row.capturedAt,
     t: snapshotUnix(row.capturedAt),
+    server,
     complete: snapshotComplete(data),
     offers,
   };
@@ -311,8 +357,28 @@ export function mergeOffers(snapshots: PkaSnapshot[]): PkaOffer[] {
 
 export function buildMarket(snapshots: PkaSnapshot[]): { offers: PkaOffer[]; items: PkaItem[] } {
   const ordered = sortSnapshots(snapshots);
-  const offers = mergeOffers(ordered);
-  return { offers, items: aggregateItems(offers, priceHistories(ordered)) };
+  const groups = new Map<string, PkaSnapshot[]>();
+  for (const snapshot of ordered) {
+    const list = groups.get(snapshot.server);
+    if (list) list.push(snapshot);
+    else groups.set(snapshot.server, [snapshot]);
+  }
+  if (groups.size <= 1) {
+    const offers = mergeOffers(ordered);
+    return { offers, items: aggregateItems(offers, priceHistories(ordered)) };
+  }
+  const offers: PkaOffer[] = [];
+  const histories = new Map<string, PricePoint[]>();
+  for (const group of groups.values()) {
+    offers.push(...mergeOffers(group));
+    for (const [name, points] of priceHistories(group)) {
+      const row = histories.get(name);
+      if (row) row.push(...points);
+      else histories.set(name, points.slice());
+    }
+  }
+  for (const points of histories.values()) points.sort((a, b) => a.t - b.t);
+  return { offers, items: aggregateItems(offers, histories) };
 }
 
 export function expiresAt(offer: PkaOffer): number {
@@ -345,12 +411,13 @@ export function matchesExpired(offer: PkaOffer, filter: ExpiredFilter, nowUnix =
 
 export function parsePkaMarket(data: unknown): PkaMarket | null {
   if (!data || typeof data !== "object") return null;
-  const row = data as { capturedAt?: unknown; listings?: unknown };
+  const row = data as { capturedAt?: unknown; listings?: unknown; server?: unknown };
   if (typeof row.capturedAt !== "string" || !Array.isArray(row.listings)) return null;
+  const server = text(row.server);
   const offers: PkaOffer[] = [];
   row.listings.forEach((entry, index) => {
     if (!entry || typeof entry !== "object") return;
-    const offer = toOffer(entry as Record<string, unknown>, index);
+    const offer = toOffer(entry as Record<string, unknown>, index, server);
     if (offer) offers.push(offer);
   });
   return {

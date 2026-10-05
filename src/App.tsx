@@ -8,6 +8,7 @@ import { ItemsPage } from "./pages/ItemsPage";
 import { ListingsPage } from "./pages/ListingsPage";
 import { OpportunitiesPage } from "./pages/OpportunitiesPage";
 import { PokemonPage } from "./pages/PokemonPage";
+import { StashPage } from "./pages/StashPage";
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
             <Route path="/oportunidades" element={<OpportunitiesPage />} />
             <Route path="/pokemon" element={<PokemonPage />} />
             <Route path="/boost" element={<BoostPage />} />
+            <Route path="/stash" element={<StashPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

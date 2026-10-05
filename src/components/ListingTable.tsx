@@ -27,7 +27,7 @@ export function ListingTable({ rows }: Props) {
             const status = offerStatus(row);
             const gone = status !== "active";
             return (
-            <tr key={row.itemCode} className={gone ? "opacity-70" : undefined}>
+            <tr key={`${row.server}:${row.itemCode}`} className={gone ? "opacity-70" : undefined}>
               <td>
                 <Link to={itemPath(row.itemName)} className="font-medium hover:text-gold">
                   {row.itemName}
