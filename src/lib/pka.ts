@@ -289,10 +289,10 @@ export function dedupeSnapshots(snapshots: PkaSnapshot[]): PkaSnapshot[] {
   return sortSnapshots([...byKey.values()]);
 }
 
-function snapshotComplete(data: unknown): boolean {
-  if (!data || typeof data !== "object") return false;
+function categoryPages(data: unknown): { seen: number; maxPage: number } {
+  if (!data || typeof data !== "object") return { seen: 0, maxPage: 0 };
   const pages = (data as { pages?: unknown }).pages;
-  if (!Array.isArray(pages) || !pages.length) return false;
+  if (!Array.isArray(pages) || !pages.length) return { seen: 0, maxPage: 0 };
   let maxPage = 0;
   const seen = new Set<number>();
   for (const page of pages) {
@@ -302,7 +302,12 @@ function snapshotComplete(data: unknown): boolean {
     if (typeof row.page === "number") seen.add(row.page);
     if (typeof row.maxPage === "number" && row.maxPage > maxPage) maxPage = row.maxPage;
   }
-  return maxPage > 0 && seen.size >= maxPage;
+  return { seen: seen.size, maxPage };
+}
+
+function snapshotComplete(data: unknown): boolean {
+  const { seen, maxPage } = categoryPages(data);
+  return maxPage > 0 && seen >= maxPage;
 }
 
 export function parsePkaSnapshot(data: unknown, file = ""): PkaSnapshot | null {
@@ -353,16 +358,21 @@ function priceHistories(snapshots: PkaSnapshot[]): Map<string, PricePoint[]> {
   return series;
 }
 
+function listedAt(offer: PkaOffer, atUnix: number): boolean {
+  const expiry = expiresAt(offer);
+  if (expiry > 0) return expiry > atUnix;
+  return offer.timeleft > 0;
+}
+
 export function mergeOffers(snapshots: PkaSnapshot[]): PkaOffer[] {
   const latest = snapshots[snapshots.length - 1];
-  const latestIds =
-    snapshots.length >= 2 && latest?.complete ? new Set(latest.offers.map((offer) => offer.itemCode)) : null;
+  const latestIds = latest && latest.offers.length > 0 ? new Set(latest.offers.map((offer) => offer.itemCode)) : null;
   const byCode = new Map<string, PkaOffer>();
   for (const snapshot of snapshots) {
     for (const offer of snapshot.offers) byCode.set(offer.itemCode, offer);
   }
   return [...byCode.values()].map((offer) => {
-    const removed = latestIds != null && !latestIds.has(offer.itemCode);
+    const removed = latestIds != null && !latestIds.has(offer.itemCode) && listedAt(offer, latest.t);
     if (offer.removed === removed) return offer;
     return { ...offer, removed };
   });
