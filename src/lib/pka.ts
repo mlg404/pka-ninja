@@ -149,9 +149,22 @@ function shared(values: number[]): number | null {
   return values.every((value) => value === first) ? first : null;
 }
 
+const ARCANE_KIND = /mysterious\s+(.+?)(?:\s+den\b|\s*\.\s*rarity\b)/i;
+
+/** Arcane Shards share one item name. The den in the description is the real type. */
+function offerName(itemName: string, description: string): string {
+  if (fold(itemName) !== "arcane shard") return itemName;
+  const match = description.match(ARCANE_KIND);
+  if (!match) return itemName;
+  const kind = match[1].trim().replace(/['’]s$/i, "");
+  return kind ? `Arcane Shard - ${kind}` : itemName;
+}
+
 function toOffer(raw: Record<string, unknown>, index: number, server = ""): PkaOffer | null {
-  const itemName = text(raw.item_name);
-  if (!itemName) return null;
+  const rawName = text(raw.item_name);
+  if (!rawName) return null;
+  const description = typeof raw.description === "string" ? raw.description : "";
+  const itemName = offerName(rawName, description);
   return {
     itemCode: text(raw.itemCode) || `${itemName}:${index}`,
     itemName,
@@ -159,7 +172,7 @@ function toOffer(raw: Record<string, unknown>, index: number, server = ""): PkaO
     price: num(raw.price) ?? 0,
     sellerName: text(raw.seller_name) || "—",
     anonymous: raw.anonymous === true,
-    description: typeof raw.description === "string" ? raw.description : "",
+    description,
     pokeballType: text(raw.pokeballType),
     timeleft: num(raw.timeleft) ?? 0,
     seenAt: num(raw.seenAt) ?? 0,
