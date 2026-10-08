@@ -5,6 +5,7 @@ import { ExpiredFilterSelect } from "../components/ExpiredFilterSelect";
 import { ListingTable } from "../components/ListingTable";
 import { Pagination } from "../components/Pagination";
 import { SearchInput } from "../components/SearchInput";
+import { SortSelect } from "../components/SortSelect";
 import { formatCount } from "../lib/format";
 import { useMarket } from "../lib/market";
 import {
@@ -15,8 +16,8 @@ import {
   paginate,
   type ExpiredFilter,
   type PkaCategory,
-  type PkaOffer,
 } from "../lib/pka";
+import { LISTING_SORT_OPTIONS, nextSort, parseOfferSort, sortPatch, sortPkaOffers } from "../lib/sort";
 
 const PAGE_SIZE = 25;
 
@@ -30,16 +31,7 @@ function parseExpired(value: string | null): ExpiredFilter {
   return "active";
 }
 
-function sortOffers(rows: PkaOffer[], sort: string): PkaOffer[] {
-  const copy = [...rows];
-  copy.sort((a, b) => {
-    if (sort === "price-asc") return a.price - b.price;
-    if (sort === "price-desc") return b.price - a.price;
-    if (sort === "name") return a.itemName.localeCompare(b.itemName) || a.price - b.price;
-    return b.seenAt - a.seenAt;
-  });
-  return copy;
-}
+const LISTING_SORT = { sort: "seen", dir: "desc" } as const;
 
 export function ListingsPage() {
   const { offers, snapshots, loading, error } = useMarket();
@@ -47,7 +39,7 @@ export function ListingsPage() {
   const q = params.get("q") ?? "";
   const cat = parseCat(params.get("cat"));
   const expired = parseExpired(params.get("exp"));
-  const sort = params.get("sort") ?? "seen";
+  const { sort, dir } = parseOfferSort(params.get("sort"), params.get("dir"), LISTING_SORT);
   const page = Number(params.get("page") || "1") || 1;
 
   const scoped = useMemo(() => offers.filter((offer) => matchesExpired(offer, expired)), [offers, expired]);
@@ -70,17 +62,17 @@ export function ListingsPage() {
       );
     });
   }, [scoped, q, cat]);
-  const sorted = useMemo(() => sortOffers(filtered, sort), [filtered, sort]);
+  const sorted = useMemo(() => sortPkaOffers(filtered, sort, dir), [filtered, sort, dir]);
   const paged = paginate(sorted, page, PAGE_SIZE);
 
-  function patch(next: Record<string, string | null>) {
+  function patch(next: Record<string, string | null>, replace = false) {
     const copy = new URLSearchParams(params);
     for (const [key, value] of Object.entries(next)) {
       if (!value) copy.delete(key);
       else copy.set(key, value);
     }
     if (!("page" in next)) copy.delete("page");
-    setParams(copy);
+    setParams(copy, { replace });
   }
 
   if (loading) return <p className="py-16 text-center text-slate-400">Carregando listagens…</p>;
@@ -107,23 +99,27 @@ export function ListingsPage() {
         />
         <SearchInput
           value={q}
-          onChange={(value) => patch({ q: value || null })}
+          onChange={(value) => patch({ q: value || null }, true)}
           placeholder="Buscar item, vendedor ou ball…"
         />
-        <select
-          value={sort}
-          onChange={(e) => patch({ sort: e.target.value })}
-          className="rounded-lg border border-line bg-panel px-3 py-2 text-sm"
-        >
-          <option value="seen">Ordem do capture</option>
-          <option value="price-desc">Maior preço</option>
-          <option value="price-asc">Menor preço</option>
-          <option value="name">Nome A–Z</option>
-        </select>
+        <SortSelect
+          sort={sort}
+          dir={dir}
+          options={LISTING_SORT_OPTIONS}
+          onChange={(nextSortKey, nextDir) => patch(sortPatch(nextSortKey, nextDir, LISTING_SORT))}
+        />
       </div>
 
       <CategoryTabs value={cat} onChange={(id) => patch({ cat: id === "all" ? null : id })} counts={counts} />
-      <ListingTable rows={paged.rows} />
+      <ListingTable
+        rows={paged.rows}
+        sort={sort}
+        dir={dir}
+        onSort={(key) => {
+          const next = nextSort(sort, dir, key);
+          patch(sortPatch(next.sort, next.dir, LISTING_SORT));
+        }}
+      />
       <Pagination page={paged.page} pages={paged.pages} total={paged.total} onPage={(next) => patch({ page: String(next) })} />
     </div>
   );

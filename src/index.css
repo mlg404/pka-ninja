@@ -72,6 +72,32 @@ select {
   white-space: nowrap;
 }
 
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.sort-btn.is-right {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.sort-btn:hover {
+  color: var(--color-gold);
+}
+
+.sort-arrow {
+  color: var(--color-gold);
+}
+
 .table-wrap td {
   padding: 9px 12px;
   border-bottom: 1px solid rgba(39, 49, 66, 0.7);

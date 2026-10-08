@@ -3,10 +3,12 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { ExpiredFilterSelect } from "../components/ExpiredFilterSelect";
 import { ListingTable } from "../components/ListingTable";
+import { SortSelect } from "../components/SortSelect";
 import { Sparkline } from "../components/Sparkline";
 import { formatCount, formatFullMoney, formatIso, formatMoney, formatPct } from "../lib/format";
 import { useMarket } from "../lib/market";
 import { fold, matchesExpired, type ExpiredFilter } from "../lib/pka";
+import { LISTING_SORT_OPTIONS, nextSort, parseOfferSort, sortPatch, sortPkaOffers } from "../lib/sort";
 
 function stat(value: number | null, trades: number | null): string {
   if (value == null || trades == null || trades <= 0) return "—";
@@ -20,15 +22,13 @@ export function ItemDetailPage() {
   const { items, offers, snapshots, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const expired = parseExpired(params.get("exp"));
+  const { sort, dir } = parseOfferSort(params.get("sort"), params.get("dir"), DETAIL_SORT);
 
   const item = items.find((row) => fold(row.name) === wanted);
-  const rows = useMemo(
-    () =>
-      offers
-        .filter((offer) => fold(offer.itemName) === wanted && matchesExpired(offer, expired))
-        .sort((a, b) => a.price - b.price),
-    [offers, wanted, expired],
-  );
+  const rows = useMemo(() => {
+    const matched = offers.filter((offer) => fold(offer.itemName) === wanted && matchesExpired(offer, expired));
+    return sortPkaOffers(matched, sort, dir);
+  }, [offers, wanted, expired, sort, dir]);
   const series = useMemo(
     () =>
       (item?.history ?? []).map((point) => ({
@@ -39,6 +39,15 @@ export function ItemDetailPage() {
       })),
     [item],
   );
+
+  function patch(next: Record<string, string | null>) {
+    const copy = new URLSearchParams(params);
+    for (const [key, value] of Object.entries(next)) {
+      if (!value) copy.delete(key);
+      else copy.set(key, value);
+    }
+    setParams(copy);
+  }
 
   if (loading) return <p className="py-16 text-center text-slate-400">Carregando…</p>;
   if (error) return <p className="py-16 text-center text-rose-400">{error}</p>;
@@ -121,20 +130,33 @@ export function ItemDetailPage() {
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <h2 className="text-sm font-semibold">Anúncios deste item</h2>
-        <ExpiredFilterSelect
-          value={expired}
-          onChange={(value) => {
-            const copy = new URLSearchParams(params);
-            if (value === "active") copy.delete("exp");
-            else copy.set("exp", value);
-            setParams(copy);
-          }}
-        />
+        <div className="flex flex-wrap items-center gap-2">
+          <SortSelect
+            sort={sort}
+            dir={dir}
+            options={LISTING_SORT_OPTIONS}
+            onChange={(nextSortKey, nextDir) => patch(sortPatch(nextSortKey, nextDir, DETAIL_SORT))}
+          />
+          <ExpiredFilterSelect
+            value={expired}
+            onChange={(value) => patch({ exp: value === "active" ? null : value })}
+          />
+        </div>
       </div>
-      <ListingTable rows={rows} />
+      <ListingTable
+        rows={rows}
+        sort={sort}
+        dir={dir}
+        onSort={(key) => {
+          const next = nextSort(sort, dir, key);
+          patch(sortPatch(next.sort, next.dir, DETAIL_SORT));
+        }}
+      />
     </div>
   );
 }
+
+const DETAIL_SORT = { sort: "price", dir: "asc" } as const;
 
 function parseExpired(value: string | null): ExpiredFilter {
   if (value === "expired" || value === "all") return value;

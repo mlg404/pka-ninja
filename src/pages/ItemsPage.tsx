@@ -4,9 +4,11 @@ import { CategoryTabs } from "../components/CategoryTabs";
 import { ItemTable } from "../components/ItemTable";
 import { Pagination } from "../components/Pagination";
 import { SearchInput } from "../components/SearchInput";
+import { SortSelect } from "../components/SortSelect";
 import { formatCount } from "../lib/format";
 import { useMarket } from "../lib/market";
-import { fold, matchesQuery, paginate, type PkaCategory, type PkaItem } from "../lib/pka";
+import { fold, matchesQuery, paginate, type PkaCategory } from "../lib/pka";
+import { ITEM_SORT_OPTIONS, nextSort, parseItemSort, sortPatch, sortPkaItems } from "../lib/sort";
 
 const PAGE_SIZE = 40;
 
@@ -15,25 +17,15 @@ function parseCat(value: string | null): PkaCategory {
   return "all";
 }
 
-function sortItems(rows: PkaItem[], sort: string): PkaItem[] {
-  const copy = [...rows];
-  copy.sort((a, b) => {
-    if (sort === "name") return a.name.localeCompare(b.name);
-    if (sort === "median") return b.median - a.median;
-    if (sort === "change") return (b.changePct ?? -999) - (a.changePct ?? -999);
-    if (sort === "avg30") return (b.avg30 ?? -1) - (a.avg30 ?? -1);
-    if (sort === "quantity") return b.quantity - a.quantity;
-    return b.active - a.active || b.listings - a.listings || a.name.localeCompare(b.name);
-  });
-  return copy;
-}
+const ITEM_SORT = { sort: "active", dir: "desc" } as const;
 
 export function ItemsPage() {
   const { items, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const q = params.get("q") ?? "";
   const cat = parseCat(params.get("cat"));
-  const sort = params.get("sort") ?? "listings";
+  const rawSort = params.get("sort") === "listings" ? "active" : params.get("sort");
+  const { sort, dir } = parseItemSort(rawSort, params.get("dir"), ITEM_SORT);
   const page = Number(params.get("page") || "1") || 1;
 
   const counts = useMemo(() => {
@@ -48,17 +40,17 @@ export function ItemsPage() {
       return matchesQuery(fold(`${item.name} ${item.description} ${item.balls.join(" ")}`), q);
     });
   }, [items, q, cat]);
-  const sorted = useMemo(() => sortItems(filtered, sort), [filtered, sort]);
+  const sorted = useMemo(() => sortPkaItems(filtered, sort, dir), [filtered, sort, dir]);
   const paged = paginate(sorted, page, PAGE_SIZE);
 
-  function patch(next: Record<string, string | null>) {
+  function patch(next: Record<string, string | null>, replace = false) {
     const copy = new URLSearchParams(params);
     for (const [key, value] of Object.entries(next)) {
       if (!value) copy.delete(key);
       else copy.set(key, value);
     }
     if (!("page" in next)) copy.delete("page");
-    setParams(copy);
+    setParams(copy, { replace });
   }
 
   if (loading) return <p className="py-16 text-center text-slate-400">Carregando itens…</p>;
@@ -75,23 +67,25 @@ export function ItemsPage() {
       </div>
 
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
-        <SearchInput value={q} onChange={(value) => patch({ q: value || null })} placeholder="Buscar pelo nome do item…" />
-        <select
-          value={sort}
-          onChange={(e) => patch({ sort: e.target.value })}
-          className="rounded-lg border border-line bg-panel px-3 py-2 text-sm"
-        >
-          <option value="listings">Mais anúncios</option>
-          <option value="change">Maior alta</option>
-          <option value="median">Maior mediana</option>
-          <option value="avg30">Maior média 30d</option>
-          <option value="quantity">Maior quantidade</option>
-          <option value="name">Nome A–Z</option>
-        </select>
+        <SearchInput value={q} onChange={(value) => patch({ q: value || null }, true)} placeholder="Buscar pelo nome do item…" />
+        <SortSelect
+          sort={sort}
+          dir={dir}
+          options={ITEM_SORT_OPTIONS}
+          onChange={(nextSortKey, nextDir) => patch(sortPatch(nextSortKey, nextDir, ITEM_SORT))}
+        />
       </div>
 
       <CategoryTabs value={cat} onChange={(id) => patch({ cat: id === "all" ? null : id })} counts={counts} />
-      <ItemTable rows={paged.rows} />
+      <ItemTable
+        rows={paged.rows}
+        sort={sort}
+        dir={dir}
+        onSort={(key) => {
+          const next = nextSort(sort, dir, key);
+          patch(sortPatch(next.sort, next.dir, ITEM_SORT));
+        }}
+      />
       <Pagination page={paged.page} pages={paged.pages} total={paged.total} onPage={(next) => patch({ page: String(next) })} />
     </div>
   );

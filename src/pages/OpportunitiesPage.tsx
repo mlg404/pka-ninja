@@ -1,21 +1,41 @@
 import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Pagination } from "../components/Pagination";
+import { SortSelect } from "../components/SortSelect";
+import { SortableHead, type SortColumn } from "../components/SortableHead";
 import { Sparkline } from "../components/Sparkline";
 import { cls, formatCount, formatMoney, formatPct } from "../lib/format";
 import { useMarket } from "../lib/market";
 import { itemPath, opportunityItems, paginate, type OpportunityKind, type PkaItem } from "../lib/pka";
+import { nextSort, sortOpportunities, sortPatch, type SortChoice, type SortDir } from "../lib/sort";
 
 const PAGE_SIZE = 30;
+const COLUMNS: SortColumn[] = [
+  { key: "name", label: "Item" },
+  { key: "min", label: "Mais barato", align: "right" },
+  { key: "change", label: "Variação", align: "right" },
+  { key: "spark", label: "Preço", sortable: false },
+];
+const OPP_SORT_OPTIONS: SortChoice[] = [
+  { sort: "change", dir: "desc", label: "Maior alta" },
+  { sort: "change", dir: "asc", label: "Maior queda" },
+  { sort: "min", dir: "desc", label: "Maior preço" },
+  { sort: "min", dir: "asc", label: "Menor preço" },
+  { sort: "name", dir: "asc", label: "Nome A–Z" },
+  { sort: "name", dir: "desc", label: "Nome Z–A" },
+];
 
 export function OpportunitiesPage() {
   const { items, snapshots, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const kind = parseKind(params.get("tipo"));
-  const page = Number(params.get("page") || "1") || 1;
-  const rows = useMemo(() => opportunityItems(items, kind), [items, kind]);
-  const paged = paginate(rows, page, PAGE_SIZE);
   const sell = kind === "sell";
+  const fallback = { sort: "change", dir: (sell ? "desc" : "asc") as SortDir };
+  const sort = params.get("sort") ?? fallback.sort;
+  const dir: SortDir = params.get("dir") === "asc" || params.get("dir") === "desc" ? (params.get("dir") as SortDir) : fallback.dir;
+  const page = Number(params.get("page") || "1") || 1;
+  const rows = useMemo(() => sortOpportunities(opportunityItems(items, kind), sort, dir), [items, kind, sort, dir]);
+  const paged = paginate(rows, page, PAGE_SIZE);
 
   function patch(next: Record<string, string | null>) {
     const copy = new URLSearchParams(params);
@@ -45,32 +65,54 @@ export function OpportunitiesPage() {
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         <KindLink active={sell} to="/oportunidades?tipo=venda">
           Venda
         </KindLink>
         <KindLink active={!sell} to="/oportunidades?tipo=compra">
           Compra
         </KindLink>
+        <SortSelect
+          sort={sort}
+          dir={dir}
+          options={OPP_SORT_OPTIONS}
+          onChange={(nextSortKey, nextDir) => patch(sortPatch(nextSortKey, nextDir, fallback))}
+        />
       </div>
 
-      <OpportunityTable rows={paged.rows} sell={sell} />
+      <OpportunityTable
+        rows={paged.rows}
+        sell={sell}
+        sort={sort}
+        dir={dir}
+        onSort={(key) => {
+          const next = nextSort(sort, dir, key);
+          patch(sortPatch(next.sort, next.dir, fallback));
+        }}
+      />
       <Pagination page={paged.page} pages={paged.pages} total={rows.length} onPage={(next) => patch({ page: String(next) })} />
     </div>
   );
 }
 
-function OpportunityTable({ rows, sell }: { rows: PkaItem[]; sell: boolean }) {
+function OpportunityTable({
+  rows,
+  sell,
+  sort,
+  dir,
+  onSort,
+}: {
+  rows: PkaItem[];
+  sell: boolean;
+  sort: string;
+  dir: SortDir;
+  onSort: (key: string) => void;
+}) {
   return (
     <div className="table-wrap rounded-xl border border-line bg-panel">
       <table>
         <thead>
-          <tr>
-            <th>Item</th>
-            <th className="text-right">Mais barato</th>
-            <th className="text-right">Variação</th>
-            <th>Preço</th>
-          </tr>
+          <SortableHead columns={COLUMNS} sort={sort} dir={dir} onSort={onSort} />
         </thead>
         <tbody>
           {rows.map((row) => (

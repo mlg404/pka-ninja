@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { SortableHead, type SortColumn } from "../components/SortableHead";
 import { cls, formatCount, formatFullMoney, formatIso, formatMoney } from "../lib/format";
 import {
   BOOST_ELEMENTS,
@@ -16,6 +17,7 @@ import {
 import { listDataFiles } from "../lib/dataFiles";
 import { useMarket } from "../lib/market";
 import { fold, itemPath, type PkaItem } from "../lib/pka";
+import { nextSort, type SortDir } from "../lib/sort";
 
 type PriceDrafts = Record<string, string>;
 
@@ -27,6 +29,13 @@ function parseAmount(raw: string): number | null {
 }
 
 const QTY_KEYS = ["fragment", "drop-0", "drop-1", "drop-2", "stone"] as const;
+const NEED_COLUMNS: SortColumn[] = [
+  { key: "name", label: "Item" },
+  { key: "per", label: "Por pedra", align: "right" },
+  { key: "total", label: "Total", align: "right" },
+  { key: "unit", label: "Preço un.", align: "right" },
+  { key: "cost", label: "Gasto", align: "right" },
+];
 
 export function BoostPage() {
   const { items, loading, error } = useMarket();
@@ -37,6 +46,8 @@ export function BoostPage() {
   const [slotNames, setSlotNames] = useState<string[]>(() => initialSlots(BOOST_ELEMENTS[0]));
   const [qty, setQty] = useState<Record<string, string>>({});
   const [prices, setPrices] = useState<PriceDrafts>({});
+  const [needSort, setNeedSort] = useState("");
+  const [needDir, setNeedDir] = useState<SortDir>("asc");
   const [params] = useSearchParams();
   const [makeRaw, setMakeRaw] = useState(() => {
     const initial = parseCount(params.get("qtd") ?? "");
@@ -137,7 +148,7 @@ export function BoostPage() {
     productDraft != null ? parseAmount(productDraft) : product && product.min > 0 ? product.min : null;
   const craft = lines.every((line) => line.cost != null) ? lines.reduce((sum, line) => sum + (line.cost ?? 0), 0) : null;
   const make = parseCount(makeRaw);
-  const needs = materialNeeds(lines, make);
+  const needs = needSort ? sortNeeds(materialNeeds(lines, make), needSort, needDir) : materialNeeds(lines, make);
   const missingQty = lines.some((line) => line.quantity == null);
   const missingPrice = lines.some((line) => line.unit == null) || productUnit == null;
 
@@ -381,13 +392,16 @@ export function BoostPage() {
         <div className="table-wrap mt-4">
           <table>
             <thead>
-              <tr>
-                <th>Item</th>
-                <th className="text-right">Por pedra</th>
-                <th className="text-right">Total</th>
-                <th className="text-right">Preço un.</th>
-                <th className="text-right">Gasto</th>
-              </tr>
+              <SortableHead
+                columns={NEED_COLUMNS}
+                sort={needSort}
+                dir={needDir}
+                onSort={(key) => {
+                  const next = nextSort(needSort, needDir, key);
+                  setNeedSort(next.sort);
+                  setNeedDir(next.dir);
+                }}
+              />
             </thead>
             <tbody>
               {needs.map((need) => (
@@ -432,6 +446,22 @@ function parseCount(raw: string): number | null {
   if (!digits) return null;
   const value = Number(digits);
   return value > 0 ? value : null;
+}
+
+function sortNeeds(rows: Need[], sort: string, dir: SortDir): Need[] {
+  const copy = [...rows];
+  const sign = dir === "asc" ? 1 : -1;
+  copy.sort((a, b) => {
+    const tie = a.name.localeCompare(b.name, "pt", { sensitivity: "base" });
+    if (sort === "name") return tie * (dir === "asc" ? 1 : -1);
+    const left = sort === "per" ? a.per : sort === "total" ? a.total : sort === "unit" ? a.unit : a.cost;
+    const right = sort === "per" ? b.per : sort === "total" ? b.total : sort === "unit" ? b.unit : b.cost;
+    if (left == null && right == null) return tie;
+    if (left == null) return 1;
+    if (right == null) return -1;
+    return (left - right) * sign || tie;
+  });
+  return copy;
 }
 
 function materialNeeds(lines: Line[], make: number | null): Need[] {

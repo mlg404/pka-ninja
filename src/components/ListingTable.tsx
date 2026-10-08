@@ -1,26 +1,33 @@
 import { Link } from "react-router-dom";
+import { SortableHead, type SortColumn } from "./SortableHead";
 import { formatCount, formatDuration, formatFullMoney, formatMoney } from "../lib/format";
 import { itemPath, lineTotal, offerStatus, secondsLeft, type PkaOffer } from "../lib/pka";
+import type { SortDir } from "../lib/sort";
 
 type Props = {
   rows: PkaOffer[];
+  sort: string;
+  dir: SortDir;
+  onSort: (key: string) => void;
 };
 
-export function ListingTable({ rows }: Props) {
+const COLUMNS: SortColumn[] = [
+  { key: "item", label: "Item" },
+  { key: "ball", label: "Ball" },
+  { key: "count", label: "Qtd", align: "right" },
+  { key: "price", label: "Preço", align: "right" },
+  { key: "total", label: "Total", align: "right" },
+  { key: "seller", label: "Vendedor" },
+  { key: "left", label: "Restante", align: "right" },
+  { key: "avg30", label: "Média 30d", align: "right" },
+];
+
+export function ListingTable({ rows, sort, dir, onSort }: Props) {
   return (
     <div className="table-wrap rounded-xl border border-line bg-panel">
       <table>
         <thead>
-          <tr>
-            <th>Item</th>
-            <th>Ball</th>
-            <th className="text-right">Qtd</th>
-            <th className="text-right">Preço</th>
-            <th className="text-right">Total</th>
-            <th>Vendedor</th>
-            <th className="text-right">Restante</th>
-            <th className="text-right">Média 30d</th>
-          </tr>
+          <SortableHead columns={COLUMNS} sort={sort} dir={dir} onSort={onSort} />
         </thead>
         <tbody>
           {rows.map((row) => {

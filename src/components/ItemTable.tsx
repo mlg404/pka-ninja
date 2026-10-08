@@ -1,33 +1,40 @@
 import { Link } from "react-router-dom";
 import { Sparkline } from "./Sparkline";
+import { SortableHead, type SortColumn } from "./SortableHead";
 import { cls, formatCount, formatMoney, formatPct } from "../lib/format";
 import { itemPath, type PkaItem } from "../lib/pka";
+import type { SortDir } from "../lib/sort";
 
 type Props = {
   rows: PkaItem[];
+  sort: string;
+  dir: SortDir;
+  onSort: (key: string) => void;
 };
+
+const COLUMNS: SortColumn[] = [
+  { key: "name", label: "Item" },
+  { key: "active", label: "Anúncios", align: "right" },
+  { key: "quantity", label: "Qtd", align: "right" },
+  { key: "min", label: "Mín", align: "right" },
+  { key: "median", label: "Mediana", align: "right" },
+  { key: "max", label: "Máx", align: "right" },
+  { key: "avg30", label: "Média 30d", align: "right" },
+  { key: "change", label: "Δ", align: "right" },
+  { key: "spark", label: "Preço", sortable: false },
+];
 
 function stat(value: number | null, trades: number | null): string {
   if (value == null || trades == null || trades <= 0) return "—";
   return formatMoney(value);
 }
 
-export function ItemTable({ rows }: Props) {
+export function ItemTable({ rows, sort, dir, onSort }: Props) {
   return (
     <div className="table-wrap rounded-xl border border-line bg-panel">
       <table>
         <thead>
-          <tr>
-            <th>Item</th>
-            <th className="text-right">Anúncios</th>
-            <th className="text-right">Qtd</th>
-            <th className="text-right">Mín</th>
-            <th className="text-right">Mediana</th>
-            <th className="text-right">Máx</th>
-            <th className="text-right">Média 30d</th>
-            <th className="text-right">Δ</th>
-            <th>Preço</th>
-          </tr>
+          <SortableHead columns={COLUMNS} sort={sort} dir={dir} onSort={onSort} />
         </thead>
         <tbody>
           {rows.map((row) => (

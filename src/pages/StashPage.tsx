@@ -1,8 +1,10 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
+import { SortableHead, type SortColumn } from "../components/SortableHead";
 import { formatCount, formatFullMoney, formatIso, formatMoney } from "../lib/format";
 import { useMarket } from "../lib/market";
 import { fold, itemPath, type PkaItem } from "../lib/pka";
+import { nextSort, type SortDir } from "../lib/sort";
 
 type StashRow = {
   itemId: number;
@@ -14,10 +16,33 @@ type StashRow = {
   value: number | null;
 };
 
+const STASH_COLUMNS: SortColumn[] = [
+  { key: "label", label: "Item" },
+  { key: "count", label: "Qtd", align: "right" },
+  { key: "unit", label: "Unitário", align: "right" },
+  { key: "value", label: "Total", align: "right" },
+];
+
 type StashFile = {
   capturedAt: string | null;
   rows: { itemId: number; name: string; count: number }[];
 };
+
+function sortStash(rows: StashRow[], sort: string, dir: SortDir): StashRow[] {
+  const copy = [...rows];
+  const sign = dir === "asc" ? 1 : -1;
+  copy.sort((a, b) => {
+    const tie = a.label.localeCompare(b.label, "pt", { sensitivity: "base" });
+    if (sort === "label") return a.label.localeCompare(b.label, "pt", { sensitivity: "base" }) * sign;
+    const left = sort === "count" ? a.count : sort === "unit" ? a.unit : a.value;
+    const right = sort === "count" ? b.count : sort === "unit" ? b.unit : b.value;
+    if (left == null && right == null) return tie;
+    if (left == null) return 1;
+    if (right == null) return -1;
+    return (left - right) * sign || tie;
+  });
+  return copy;
+}
 
 function stashLabel(raw: string): string {
   const line = raw.split(/\r?\n/)[0] ?? raw;
@@ -82,14 +107,11 @@ export function StashPage() {
         value: price ? price.unit * row.count : null,
       };
     });
-    rows.sort((a, b) => {
-      if (a.value == null && b.value == null) return b.count - a.count || a.label.localeCompare(b.label);
-      if (a.value == null) return 1;
-      if (b.value == null) return -1;
-      return b.value - a.value || a.label.localeCompare(b.label);
-    });
     return rows;
   }, [stash, byName]);
+  const [sort, setSort] = useState("value");
+  const [dir, setDir] = useState<SortDir>("desc");
+  const ordered = useMemo(() => sortStash(valued, sort, dir), [valued, sort, dir]);
 
   const total = valued.reduce((sum, row) => sum + (row.value ?? 0), 0);
   const priced = valued.filter((row) => row.value != null).length;
@@ -159,15 +181,19 @@ export function StashPage() {
           <div className="table-wrap rounded-xl border border-line bg-panel">
             <table>
               <thead>
-                <tr>
-                  <th>Item</th>
-                  <th className="text-right">Qtd</th>
-                  <th className="text-right">Unitário</th>
-                  <th className="text-right">Total</th>
-                </tr>
+                <SortableHead
+                  columns={STASH_COLUMNS}
+                  sort={sort}
+                  dir={dir}
+                  onSort={(key) => {
+                    const next = nextSort(sort, dir, key);
+                    setSort(next.sort);
+                    setDir(next.dir);
+                  }}
+                />
               </thead>
               <tbody>
-                {valued.map((row) => (
+                {ordered.map((row) => (
                   <tr key={`${row.itemId}-${row.label}`}>
                     <td>
                       {row.marketName ? (
