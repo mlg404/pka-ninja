@@ -1,20 +1,32 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { listDataFiles } from "./dataFiles";
-import {
-  buildMarket,
-  dedupeSnapshots,
-  parsePkaSnapshot,
-  sortServers,
-  type PkaItem,
-  type PkaOffer,
-  type PkaSnapshot,
-} from "./pka";
+import { sortServers, type PkaItem, type PkaOffer } from "./pka";
 
 const SERVER_KEY = "pka-ninja-server";
+const MARKET_URL = "/data/pka_market.json";
+
+export type MarketCapture = {
+  t: number;
+  capturedAt: string;
+  server: string;
+  value: number;
+};
+
+type MarketView = {
+  capturedAt: string | null;
+  snapshots: MarketCapture[];
+  offers: PkaOffer[];
+  items: PkaItem[];
+};
+
+type MarketFile = {
+  servers: string[];
+  all: MarketView;
+  byServer: Record<string, MarketView>;
+};
 
 type MarketState = {
   capturedAt: string | null;
-  snapshots: PkaSnapshot[];
+  snapshots: MarketCapture[];
   offers: PkaOffer[];
   items: PkaItem[];
   loading: boolean;
@@ -24,11 +36,10 @@ type MarketState = {
   setServer: (server: string) => void;
 };
 
+const EMPTY_VIEW: MarketView = { capturedAt: null, snapshots: [], offers: [], items: [] };
+
 const EMPTY: MarketState = {
-  capturedAt: null,
-  snapshots: [],
-  offers: [],
-  items: [],
+  ...EMPTY_VIEW,
   loading: true,
   error: null,
   servers: [],
@@ -38,22 +49,30 @@ const EMPTY: MarketState = {
 
 const MarketContext = createContext<MarketState>(EMPTY);
 
-async function readJson(path: string): Promise<unknown | null> {
-  const res = await fetch(path);
-  if (!res.ok) return null;
-  const text = await res.text();
-  const trimmed = text.trimStart();
-  if (!trimmed.startsWith("{") && !trimmed.startsWith("[")) return null;
-  try {
-    return JSON.parse(text) as unknown;
-  } catch {
-    return null;
-  }
+function isCapture(value: unknown): value is MarketCapture {
+  if (!value || typeof value !== "object") return false;
+  const row = value as MarketCapture;
+  return typeof row.capturedAt === "string" && typeof row.t === "number" && typeof row.value === "number";
 }
 
-async function fetchSnapshot(file: string): Promise<PkaSnapshot | null> {
-  const data = await readJson(`/data/${encodeURIComponent(file)}`);
-  return parsePkaSnapshot(data, file);
+function isView(value: unknown): value is MarketView {
+  if (!value || typeof value !== "object") return false;
+  const row = value as MarketView;
+  return Array.isArray(row.snapshots) && Array.isArray(row.offers) && Array.isArray(row.items) && row.snapshots.every(isCapture);
+}
+
+function parseMarketFile(data: unknown): MarketFile | null {
+  if (!data || typeof data !== "object") return null;
+  const row = data as { servers?: unknown; all?: unknown; byServer?: unknown };
+  if (!isView(row.all)) return null;
+  const servers = Array.isArray(row.servers) ? row.servers.filter((name): name is string => typeof name === "string") : [];
+  const byServer: Record<string, MarketView> = {};
+  if (row.byServer && typeof row.byServer === "object") {
+    for (const [name, view] of Object.entries(row.byServer)) {
+      if (isView(view)) byServer[name] = view;
+    }
+  }
+  return { servers: sortServers(servers), all: row.all, byServer };
 }
 
 function storedServer(): string {
@@ -65,7 +84,7 @@ function storedServer(): string {
 }
 
 export function MarketProvider({ children }: { children: ReactNode }) {
-  const [snapshots, setSnapshots] = useState<PkaSnapshot[]>([]);
+  const [file, setFile] = useState<MarketFile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [server, setServerState] = useState(storedServer);
@@ -74,14 +93,12 @@ export function MarketProvider({ children }: { children: ReactNode }) {
     let cancelled = false;
     (async () => {
       try {
-        const files = await listDataFiles("pka_market-");
-        const loaded = (await Promise.all(files.map(fetchSnapshot))).filter(
-          (row): row is PkaSnapshot => row != null,
-        );
-        const unique = dedupeSnapshots(loaded);
+        const res = await fetch(MARKET_URL, { cache: "no-store" });
+        if (!res.ok) throw new Error("Market agregado não encontrado. Rode npm.cmd run build-market.");
+        const parsed = parseMarketFile(await res.json());
+        if (!parsed) throw new Error("pka_market.json está incompleto. Rode npm.cmd run build-market.");
         if (cancelled) return;
-        if (!unique.length) throw new Error("Nenhum capture de market em /data. Rode npm.cmd run sync-data.");
-        setSnapshots(unique);
+        setFile(parsed);
         setLoading(false);
       } catch (err: unknown) {
         if (cancelled) return;
@@ -105,24 +122,22 @@ export function MarketProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo<MarketState>(() => {
-    const servers = sortServers(new Set(snapshots.map((row) => row.server).filter(Boolean)));
-    const active = server && servers.includes(server) ? server : "";
-    const scoped = active ? snapshots.filter((row) => row.server === active) : snapshots;
-    if (!scoped.length) return { ...EMPTY, loading, error, servers, server: active, setServer };
-    const latest = scoped[scoped.length - 1];
-    const market = buildMarket(scoped);
+    if (!file) return { ...EMPTY, loading, error, setServer };
+    const servers = file.servers;
+    const active = server && (file.byServer[server] || servers.includes(server)) ? server : "";
+    const view = active && file.byServer[active] ? file.byServer[active] : file.all;
     return {
-      capturedAt: latest.capturedAt,
-      snapshots: scoped,
-      offers: market.offers,
-      items: market.items,
+      capturedAt: view.capturedAt,
+      snapshots: view.snapshots,
+      offers: view.offers,
+      items: view.items,
       loading: false,
       error,
       servers,
       server: active,
       setServer,
     };
-  }, [snapshots, loading, error, server, setServer]);
+  }, [file, loading, error, server, setServer]);
 
   return <MarketContext.Provider value={value}>{children}</MarketContext.Provider>;
 }

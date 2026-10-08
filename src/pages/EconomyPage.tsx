@@ -36,10 +36,7 @@ export function EconomyPage() {
     () =>
       snapshots.map((snapshot) => ({
         t: snapshot.t * 1000,
-        value: snapshot.offers.reduce(
-          (sum, offer) => sum + (offer.price > 0 ? offer.price * Math.max(1, offer.count) : 0),
-          0,
-        ),
+        value: snapshot.value,
       })),
     [snapshots],
   );

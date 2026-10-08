@@ -15,10 +15,12 @@ npm run dev
 
 Abre `http://localhost:5174`.
 
-O `sync-data` copia `pxg-tyramel/captures/pka_market.json` para `public/data/market-<capturedAt>.json`.
+O `sync-data` copia o capture novo para `data/captures/` e gera `public/data/pka_market.json`. O site baixa só esse arquivo. Os JSON brutos não ficam na pasta pública.
 
 ```bash
-npm run sync-data
+npm run build-market
+npm run compact-market
+npm run compact-market -- --write
 ```
 
 ## O que o site mostra

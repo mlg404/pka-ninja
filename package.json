@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "sync-data": "node scripts/sync-data.mjs"
+    "sync-data": "node scripts/sync-data.mjs",
+    "build-market": "node --experimental-strip-types scripts/build-market.mjs",
+    "compact-market": "node scripts/compact-market.mjs"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

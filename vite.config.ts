@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from "node:fs";
+import { createReadStream, existsSync, readdirSync, statSync } from "node:fs";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -51,7 +51,66 @@ function marketDataPlugin(): Plugin {
   };
 }
 
+function precompressedJson(): Plugin {
+  const dataDir = resolve(root, "public/data");
+
+  function serve(req: IncomingMessage, res: ServerResponse, next: () => void) {
+    const url = req.url?.split("?")[0] ?? "";
+    if (!url.startsWith("/data/") || !url.endsWith(".json")) {
+      next();
+      return;
+    }
+    let name = url.slice("/data/".length);
+    try {
+      name = decodeURIComponent(name);
+    } catch {
+      next();
+      return;
+    }
+    if (!name || name.includes("..") || name.includes("/") || name.includes("\\")) {
+      next();
+      return;
+    }
+    const encoding = String(req.headers["accept-encoding"] ?? "");
+    const compressed = encoding.includes("br") && existsSync(resolve(dataDir, `${name}.br`))
+      ? { path: resolve(dataDir, `${name}.br`), encoding: "br" }
+      : encoding.includes("gzip") && existsSync(resolve(dataDir, `${name}.gz`))
+        ? { path: resolve(dataDir, `${name}.gz`), encoding: "gzip" }
+        : null;
+    if (!compressed) {
+      next();
+      return;
+    }
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.setHeader("Content-Encoding", compressed.encoding);
+    res.setHeader("Content-Length", String(statSync(compressed.path).size));
+    res.setHeader("Vary", "Accept-Encoding");
+    res.setHeader("Cache-Control", "no-cache");
+    if (req.method === "HEAD") {
+      res.end();
+      return;
+    }
+    const stream = createReadStream(compressed.path);
+    stream.on("error", () => {
+      if (!res.headersSent) next();
+      else res.destroy();
+    });
+    stream.pipe(res);
+  }
+
+  return {
+    name: "precompressed-json",
+    configureServer(server) {
+      server.middlewares.use(serve);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(serve);
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), tailwindcss(), marketDataPlugin()],
+  plugins: [react(), tailwindcss(), precompressedJson(), marketDataPlugin()],
   server: { port: 5174 },
 });

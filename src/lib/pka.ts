@@ -72,6 +72,15 @@ export type PricePoint = {
   listings: number;
 };
 
+/** Precomputed prices for one capture, kept when duplicate listings are stripped. */
+export type SnapshotPrices = {
+  name: string;
+  min: number;
+  median: number;
+  max: number;
+  listings: number;
+};
+
 export type PkaSnapshot = {
   file: string;
   capturedAt: string;
@@ -79,6 +88,12 @@ export type PkaSnapshot = {
   /** Empty when the capture was saved before servers were recorded. */
   server: string;
   complete: boolean;
+  /**
+   * True after `compact-market` removed listings already stored in an earlier file.
+   * A deduped file is not a full census of the market.
+   */
+  deduped: boolean;
+  priceHistory: SnapshotPrices[] | null;
   offers: PkaOffer[];
 };
 
@@ -187,7 +202,7 @@ function toOffer(raw: Record<string, unknown>, index: number, server = ""): PkaO
     count30: num(raw.count30) ?? 0,
     page: num(raw.page) ?? 0,
     server,
-    removed: false,
+    removed: raw.removed === true,
   };
 }
 
@@ -321,38 +336,76 @@ export function parsePkaSnapshot(data: unknown, file = ""): PkaSnapshot | null {
     const offer = toOffer(entry as Record<string, unknown>, index, server);
     if (offer) offers.push(offer);
   });
+  const deduped = (data as { deduped?: unknown }).deduped === true;
   return {
     file,
     capturedAt: row.capturedAt,
     t: snapshotUnix(row.capturedAt),
     server,
     complete: snapshotComplete(data),
+    deduped,
+    priceHistory: deduped ? parsePriceHistory((data as { priceHistory?: unknown }).priceHistory) : null,
     offers,
   };
+}
+
+function parsePriceHistory(value: unknown): SnapshotPrices[] | null {
+  if (!Array.isArray(value)) return null;
+  const points: SnapshotPrices[] = [];
+  for (const entry of value) {
+    if (!entry || typeof entry !== "object") continue;
+    const row = entry as { name?: unknown; min?: unknown; median?: unknown; max?: unknown; listings?: unknown };
+    const name = text(row.name);
+    if (!name) continue;
+    points.push({
+      name,
+      min: num(row.min) ?? 0,
+      median: num(row.median) ?? 0,
+      max: num(row.max) ?? 0,
+      listings: num(row.listings) ?? 0,
+    });
+  }
+  return points;
+}
+
+function pointsFromOffers(snapshot: PkaSnapshot): SnapshotPrices[] {
+  const groups = new Map<string, number[]>();
+  for (const offer of snapshot.offers) {
+    if (offer.price <= 0) continue;
+    const list = groups.get(offer.itemName);
+    if (list) list.push(offer.price);
+    else groups.set(offer.itemName, [offer.price]);
+  }
+  const points: SnapshotPrices[] = [];
+  for (const [name, prices] of groups) {
+    prices.sort((a, b) => a - b);
+    points.push({
+      name,
+      min: prices[0],
+      median: percentile(prices, 0.5),
+      max: prices[prices.length - 1],
+      listings: prices.length,
+    });
+  }
+  return points;
 }
 
 function priceHistories(snapshots: PkaSnapshot[]): Map<string, PricePoint[]> {
   const series = new Map<string, PricePoint[]>();
   for (const snapshot of snapshots) {
-    const groups = new Map<string, number[]>();
-    for (const offer of snapshot.offers) {
-      if (offer.price <= 0) continue;
-      const list = groups.get(offer.itemName);
-      if (list) list.push(offer.price);
-      else groups.set(offer.itemName, [offer.price]);
-    }
-    for (const [name, prices] of groups) {
-      prices.sort((a, b) => a - b);
-      const point: PricePoint = {
+    const points = snapshot.deduped && snapshot.priceHistory != null ? snapshot.priceHistory : pointsFromOffers(snapshot);
+    for (const point of points) {
+      if (point.listings <= 0) continue;
+      const stored: PricePoint = {
         t: snapshot.t,
-        min: prices[0],
-        median: percentile(prices, 0.5),
-        max: prices[prices.length - 1],
-        listings: prices.length,
+        min: point.min,
+        median: point.median,
+        max: point.max,
+        listings: point.listings,
       };
-      const row = series.get(name);
-      if (row) row.push(point);
-      else series.set(name, [point]);
+      const row = series.get(point.name);
+      if (row) row.push(stored);
+      else series.set(point.name, [stored]);
     }
   }
   return series;
@@ -366,13 +419,17 @@ function listedAt(offer: PkaOffer, atUnix: number): boolean {
 
 export function mergeOffers(snapshots: PkaSnapshot[]): PkaOffer[] {
   const latest = snapshots[snapshots.length - 1];
-  const latestIds = latest && latest.offers.length > 0 ? new Set(latest.offers.map((offer) => offer.itemCode)) : null;
+  // A compacted file only kept listings that were new. It is not a census, so absence there
+  // does not mean the offer was sold. `removed` on the kept row is the record of that.
+  const census = latest && !latest.deduped && latest.offers.length > 0 ? latest : null;
+  const censusIds = census ? new Set(census.offers.map((offer) => offer.itemCode)) : null;
   const byCode = new Map<string, PkaOffer>();
   for (const snapshot of snapshots) {
     for (const offer of snapshot.offers) byCode.set(offer.itemCode, offer);
   }
   return [...byCode.values()].map((offer) => {
-    const removed = latestIds != null && !latestIds.has(offer.itemCode) && listedAt(offer, latest.t);
+    if (!census || !censusIds) return offer;
+    const removed = !censusIds.has(offer.itemCode) && listedAt(offer, census.t);
     if (offer.removed === removed) return offer;
     return { ...offer, removed };
   });
