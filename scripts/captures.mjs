@@ -6,6 +6,14 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 export const captureDir = resolve(root, "data/captures");
 export const publicDataDir = resolve(root, "public/data");
+const SERVER_DATA = "/var/www/pka.ninja/data";
+
+/** Live site data, when this process is running on the VPS. Never used on a dev machine. */
+export function liveDataDir() {
+  if (process.env.PKA_DATA_DIR) return resolve(process.env.PKA_DATA_DIR);
+  if (existsSync(resolve(SERVER_DATA, ".git"))) return SERVER_DATA;
+  return null;
+}
 
 export function ensureCaptureDirs() {
   mkdirSync(captureDir, { recursive: true });

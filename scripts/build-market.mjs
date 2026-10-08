@@ -1,14 +1,30 @@
 /**
- * Junta os captures de data/captures num único public/data/pka_market.json
- * e grava as versões gzip e brotli que o dev server entrega.
+ * Junta os captures num único pka_market.json e grava gzip e brotli.
+ * No servidor, lê e grava /var/www/pka.ninja/data sem mover os arquivos do outro repositório.
  *
- *   node --experimental-strip-types scripts/build-market.mjs
+ *   node scripts/build-market.mjs
  */
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { brotliCompressSync, constants, gzipSync } from "node:zlib";
-import { buildMarket, dedupeSnapshots, parsePkaSnapshot, sortServers } from "../src/lib/pka.ts";
-import { adoptPublicCaptures, captureDir, ensureCaptureDirs, publicDataDir } from "./captures.mjs";
+import { adoptPublicCaptures, captureDir, ensureCaptureDirs, liveDataDir, publicDataDir } from "./captures.mjs";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+
+function loadPka() {
+  const outDir = resolve(root, "scripts/.cache");
+  mkdirSync(outDir, { recursive: true });
+  const tsc = resolve(root, "node_modules/typescript/bin/tsc");
+  const compiled = spawnSync(
+    process.execPath,
+    [tsc, "--pretty", "false", "-p", resolve(root, "scripts/pka.tsconfig.json")],
+    { cwd: root, stdio: "inherit" },
+  );
+  if (compiled.status) process.exit(compiled.status ?? 1);
+  return import(pathToFileURL(resolve(outDir, "pka.js")).href);
+}
 
 const AGGREGATE = "pka_market.json";
 
@@ -36,13 +52,13 @@ function viewOf(snapshots) {
   };
 }
 
-function loadCaptures() {
-  const names = readdirSync(captureDir)
+function loadCaptures(dir, parsePkaSnapshot, dedupeSnapshots) {
+  const names = readdirSync(dir)
     .filter((name) => name.startsWith("pka_market-") && name.endsWith(".json"))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
   const snapshots = [];
   for (const name of names) {
-    const path = resolve(captureDir, name);
+    const path = resolve(dir, name);
     let data;
     try {
       data = JSON.parse(readFileSync(path, "utf8"));
@@ -75,8 +91,8 @@ function writeCompressed(path, body) {
   return { raw: buf.length, gz: gz.length, br: br.length };
 }
 
-function compressExisting(name) {
-  const path = resolve(publicDataDir, name);
+function compressExisting(dir, name) {
+  const path = resolve(dir, name);
   const body = readFileSync(path);
   const { gz, br } = compressed(body);
   writeFileSync(`${path}.gz`, gz);
@@ -88,13 +104,24 @@ function mb(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
-ensureCaptureDirs();
-const moved = adoptPublicCaptures();
-if (moved.length) console.log(`captures fora do site: ${moved.length} arquivo(s) em data/captures`);
+const { buildMarket, dedupeSnapshots, parsePkaSnapshot, sortServers } = await loadPka();
 
-const snapshots = loadCaptures();
+const live = liveDataDir();
+let sourceDir = captureDir;
+let outputDir = publicDataDir;
+if (live) {
+  sourceDir = live;
+  outputDir = live;
+  console.log(`captures do site: ${live}`);
+} else {
+  ensureCaptureDirs();
+  const moved = adoptPublicCaptures();
+  if (moved.length) console.log(`captures fora do site: ${moved.length} arquivo(s) em data/captures`);
+}
+
+const snapshots = loadCaptures(sourceDir, parsePkaSnapshot, dedupeSnapshots);
 if (!snapshots.length) {
-  console.error(`Nenhum capture em ${captureDir}`);
+  console.error(`Nenhum capture em ${sourceDir}`);
   process.exit(1);
 }
 
@@ -114,14 +141,14 @@ const payload = {
   byServer,
 };
 const body = `${JSON.stringify(payload)}\n`;
-const out = resolve(publicDataDir, AGGREGATE);
+const out = resolve(outputDir, AGGREGATE);
 const sizes = writeCompressed(out, body);
 console.log(
   `${AGGREGATE}: ${snapshots.length} capture(s), ${payload.all.offers.length} anúncios, ${payload.all.items.length} nomes`,
 );
 console.log(`  json ${mb(sizes.raw)}, gzip ${mb(sizes.gz)}, brotli ${mb(sizes.br)}`);
 
-for (const name of readdirSync(publicDataDir)) {
+for (const name of readdirSync(outputDir)) {
   if (!name.startsWith("pka_boost-") || !name.endsWith(".json")) continue;
-  compressExisting(name);
+  compressExisting(outputDir, name);
 }

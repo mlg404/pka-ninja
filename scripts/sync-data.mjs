@@ -48,7 +48,7 @@ for (const name of readdirSync(publicDataDir)) {
   console.log(`removed ${name}`);
 }
 
-const built = spawnSync(process.execPath, ["--experimental-strip-types", resolve(root, "scripts/build-market.mjs")], {
+const built = spawnSync(process.execPath, [resolve(root, "scripts/build-market.mjs")], {
   stdio: "inherit",
 });
 if (built.status) process.exit(built.status ?? 1);

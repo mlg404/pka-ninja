@@ -19,15 +19,16 @@ import { spawnSync } from "node:child_process";
 import { readFileSync, readdirSync, renameSync, statSync, unlinkSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { adoptPublicCaptures, captureDir, hasMarketCaptures, publicDataDir } from "./captures.mjs";
+import { adoptPublicCaptures, captureDir, hasMarketCaptures, liveDataDir, publicDataDir } from "./captures.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
 const write = args.includes("--write");
 const dirFlag = args.indexOf("--dir");
 const customDir = dirFlag >= 0 && args[dirFlag + 1] ? resolve(args[dirFlag + 1]) : "";
-if (write && !customDir) adoptPublicCaptures();
-const destDir = customDir || (hasMarketCaptures(captureDir) || write ? captureDir : publicDataDir);
+const live = customDir ? null : liveDataDir();
+if (write && !customDir && !live) adoptPublicCaptures();
+const destDir = customDir || live || (hasMarketCaptures(captureDir) || write ? captureDir : publicDataDir);
 
 const ARCANE_KIND = /mysterious\s+(.+?)(?:\s+den\b|\s*\.\s*rarity\b)/i;
 
@@ -271,7 +272,7 @@ console.log(
 if (!write) {
   console.log("Nada foi gravado. Rode de novo com --write para aplicar.");
 } else if (!customDir) {
-  const built = spawnSync(process.execPath, ["--experimental-strip-types", resolve(root, "scripts/build-market.mjs")], {
+  const built = spawnSync(process.execPath, [resolve(root, "scripts/build-market.mjs")], {
     stdio: "inherit",
   });
   if (built.status) process.exit(built.status);

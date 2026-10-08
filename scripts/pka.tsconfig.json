@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "../src/lib",
+    "outDir": ".cache",
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "files": ["../src/lib/pka.ts"]
+}
