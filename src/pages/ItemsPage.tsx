@@ -7,15 +7,10 @@ import { SearchInput } from "../components/SearchInput";
 import { SortSelect } from "../components/SortSelect";
 import { formatCount } from "../lib/format";
 import { useMarket } from "../lib/market";
-import { fold, matchesQuery, paginate, type PkaCategory } from "../lib/pka";
+import { fold, matchesQuery, paginate, parsePkaCategory, type PkaCategory } from "../lib/pka";
 import { ITEM_SORT_OPTIONS, nextSort, parseItemSort, sortPatch, sortPkaItems } from "../lib/sort";
 
 const PAGE_SIZE = 40;
-
-function parseCat(value: string | null): PkaCategory {
-  if (value === "pokemon" || value === "items") return value;
-  return "all";
-}
 
 const ITEM_SORT = { sort: "active", dir: "desc" } as const;
 
@@ -23,7 +18,7 @@ export function ItemsPage() {
   const { items, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const q = params.get("q") ?? "";
-  const cat = parseCat(params.get("cat"));
+  const cat = parsePkaCategory(params.get("cat"));
   const rawSort = params.get("sort") === "listings" ? "active" : params.get("sort");
   const { sort, dir } = parseItemSort(rawSort, params.get("dir"), ITEM_SORT);
   const page = Number(params.get("page") || "1") || 1;

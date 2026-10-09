@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Sparkline } from "./Sparkline";
 import { SortableHead, type SortColumn } from "./SortableHead";
 import { cls, formatCount, formatMoney, formatPct } from "../lib/format";
-import { itemPath, type PkaItem } from "../lib/pka";
+import { itemPath, pkaCategoryLabel, type PkaItem } from "../lib/pka";
 import type { SortDir } from "../lib/sort";
 
 type Props = {
@@ -44,7 +44,7 @@ export function ItemTable({ rows, sort, dir, onSort }: Props) {
                   {row.name}
                 </Link>
                 <div className="text-[11px] text-slate-500">
-                  {row.kind === "pokemon" ? "Pokémon" : "Item"}
+                  {pkaCategoryLabel(row.kind)}
                   {row.balls.length > 0 && ` · ${row.balls.join(", ")}`}
                 </div>
               </td>

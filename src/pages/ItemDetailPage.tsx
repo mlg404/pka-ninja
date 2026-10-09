@@ -7,7 +7,7 @@ import { SortSelect } from "../components/SortSelect";
 import { Sparkline } from "../components/Sparkline";
 import { formatCount, formatFullMoney, formatIso, formatMoney, formatPct } from "../lib/format";
 import { useMarket } from "../lib/market";
-import { fold, matchesExpired, type ExpiredFilter } from "../lib/pka";
+import { fold, matchesExpired, pkaCategoryLabel, type ExpiredFilter } from "../lib/pka";
 import { LISTING_SORT_OPTIONS, nextSort, parseOfferSort, sortPatch, sortPkaOffers } from "../lib/sort";
 
 function stat(value: number | null, trades: number | null): string {
@@ -71,7 +71,7 @@ export function ItemDetailPage() {
       </Link>
       <div>
         <p className="text-xs uppercase tracking-[0.2em] text-gold">
-          {item?.kind === "pokemon" ? "Pokémon" : "Item"}
+          {item ? pkaCategoryLabel(item.kind) : "Item"}
           {item?.balls.length ? ` · ${item.balls.join(", ")}` : ""}
         </p>
         <h1 className="text-3xl font-bold">{displayName}</h1>

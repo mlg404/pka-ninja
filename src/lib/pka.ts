@@ -27,7 +27,7 @@ export type PkaOffer = {
   removed: boolean;
 };
 
-export type PkaKind = "pokemon" | "items";
+export type PkaKind = "pokemon" | "items" | "helds" | "arcane" | "stones";
 
 export type PkaCategory = "all" | PkaKind;
 
@@ -35,7 +35,50 @@ export const PKA_CATEGORIES: { id: PkaCategory; label: string }[] = [
   { id: "all", label: "Todos" },
   { id: "pokemon", label: "Pokémon" },
   { id: "items", label: "Itens" },
+  { id: "helds", label: "Helds" },
+  { id: "arcane", label: "Arcane Shards" },
+  { id: "stones", label: "Elemental Stones" },
 ];
+
+const ELEMENTAL_STONES = new Set([
+  "fire stone",
+  "ghost stone",
+  "thunder stone",
+  "leaf stone",
+  "feather stone",
+  "fairy stone",
+  "water stone",
+  "venom stone",
+  "rock stone",
+  "punch stone",
+  "metal stone",
+  "ice stone",
+  "heart stone",
+  "enigma stone",
+  "earth stone",
+  "crystal stone",
+  "darkness stone",
+  "cocoon stone",
+  "ancient stone",
+]);
+
+export function parsePkaCategory(value: string | null): PkaCategory {
+  if (value && PKA_CATEGORIES.some((cat) => cat.id === value)) return value as PkaCategory;
+  return "all";
+}
+
+export function pkaCategoryLabel(kind: PkaKind): string {
+  return PKA_CATEGORIES.find((cat) => cat.id === kind)?.label ?? "Item";
+}
+
+/** Helds are X- or Y- items that also carry a tier. Arcane and the elemental stone list are exact names. */
+export function itemKindFromName(name: string): Exclude<PkaKind, "pokemon"> {
+  const folded = fold(name);
+  if (/(?:^|[^a-z0-9])[xy]-/.test(folded) && /\(tier:\s*[^)]+\)/.test(folded)) return "helds";
+  if (folded.includes("arcane shard")) return "arcane";
+  if (ELEMENTAL_STONES.has(folded)) return "stones";
+  return "items";
+}
 
 /** One row per `item_name`. Price stats come from the offers; 7d/30d come from the file. */
 export type PkaItem = {
@@ -140,7 +183,8 @@ export function fold(value: string): string {
 }
 
 export function offerKind(offer: PkaOffer): PkaKind {
-  return offer.pokeballType ? "pokemon" : "items";
+  if (offer.pokeballType) return "pokemon";
+  return itemKindFromName(offer.itemName);
 }
 
 export function lineTotal(offer: PkaOffer): number {
@@ -233,7 +277,7 @@ export function aggregateItems(offers: PkaOffer[], histories?: Map<string, Price
     const history = histories?.get(name) ?? [];
     items.push({
       name,
-      kind: group.some((offer) => offer.pokeballType) ? "pokemon" : "items",
+      kind: group.some((offer) => offer.pokeballType) ? "pokemon" : itemKindFromName(name),
       listings: group.length,
       quantity: live.reduce((sum, offer) => sum + Math.max(0, offer.count), 0),
       min: livePrices[0] ?? 0,

@@ -14,17 +14,13 @@ import {
   matchesQuery,
   offerKind,
   paginate,
+  parsePkaCategory,
   type ExpiredFilter,
   type PkaCategory,
 } from "../lib/pka";
 import { LISTING_SORT_OPTIONS, nextSort, parseOfferSort, sortPatch, sortPkaOffers } from "../lib/sort";
 
 const PAGE_SIZE = 25;
-
-function parseCat(value: string | null): PkaCategory {
-  if (value === "pokemon" || value === "items") return value;
-  return "all";
-}
 
 function parseExpired(value: string | null): ExpiredFilter {
   if (value === "expired" || value === "all") return value;
@@ -37,7 +33,7 @@ export function ListingsPage() {
   const { offers, snapshots, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const q = params.get("q") ?? "";
-  const cat = parseCat(params.get("cat"));
+  const cat = parsePkaCategory(params.get("cat"));
   const expired = parseExpired(params.get("exp"));
   const { sort, dir } = parseOfferSort(params.get("sort"), params.get("dir"), LISTING_SORT);
   const page = Number(params.get("page") || "1") || 1;
