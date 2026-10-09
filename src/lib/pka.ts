@@ -411,12 +411,6 @@ function priceHistories(snapshots: PkaSnapshot[]): Map<string, PricePoint[]> {
   return series;
 }
 
-function listedAt(offer: PkaOffer, atUnix: number): boolean {
-  const expiry = expiresAt(offer);
-  if (expiry > 0) return expiry > atUnix;
-  return offer.timeleft > 0;
-}
-
 export function mergeOffers(snapshots: PkaSnapshot[]): PkaOffer[] {
   const latest = snapshots[snapshots.length - 1];
   // A compacted file only kept listings that were new. It is not a census, so absence there
@@ -429,7 +423,7 @@ export function mergeOffers(snapshots: PkaSnapshot[]): PkaOffer[] {
   }
   return [...byCode.values()].map((offer) => {
     if (!census || !censusIds) return offer;
-    const removed = !censusIds.has(offer.itemCode) && listedAt(offer, census.t);
+    const removed = !censusIds.has(offer.itemCode);
     if (offer.removed === removed) return offer;
     return { ...offer, removed };
   });

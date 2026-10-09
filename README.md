@@ -23,13 +23,7 @@ npm run compact-market
 npm run compact-market -- --write
 ```
 
-No servidor o código fica em `/opt/pka-ninja`. O site publicado continua em `/var/www/pka.ninja`.
-
-```bash
-bash /opt/pka-ninja/scripts/publish.sh
-```
-
-Esse build copia o site e não mexe em `data`. No servidor, `npm run build-market` e `npm run compact-market` leem e gravam `/var/www/pka.ninja/data`.
+O deploy no servidor está em [DEPLOY.md](DEPLOY.md).
 
 ## O que o site mostra
 

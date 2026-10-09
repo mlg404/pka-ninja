@@ -10,6 +10,8 @@ lerna-debug.log*
 node_modules
 dist
 scripts/.cache
+public/data/*
+data/*
 dist-ssr
 *.local
 
