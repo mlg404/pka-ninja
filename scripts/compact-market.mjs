@@ -6,6 +6,8 @@
  * recebe os dados da última vez que o código foi visto (quantidade e prazo).
  * Se o capture mais recente do servidor não tem mais o código, essa linha
  * ganha "removed": true: expirou, foi comprado ou saiu do market.
+ * Antes de tirar as duplicatas, grava fullMarket com o valor listado daquele
+ * capture inteiro. O gráfico usa esse número, não a soma do que sobrou no arquivo.
  *
  * Não mexe em pka_boost nem no sync. Arquivo novo continua chegando inteiro.
  * Rode de novo depois, quando quiser enxugar.
@@ -81,6 +83,28 @@ function pageStats(data) {
     if (typeof page.maxPage === "number" && page.maxPage > maxPage) maxPage = page.maxPage;
   }
   return { seen: seen.size, maxPage };
+}
+
+function fullMarketOf(listings) {
+  let listingsCount = 0;
+  let value = 0;
+  for (const row of listings) {
+    if (!row || typeof row !== "object") continue;
+    listingsCount += 1;
+    const price = Number(row.price);
+    if (!Number.isFinite(price) || price <= 0) continue;
+    const count = Number(row.count);
+    value += price * Math.max(1, Number.isFinite(count) ? count : 0);
+  }
+  return { listings: listingsCount, value };
+}
+
+function storedFullMarket(data) {
+  const market = data?.fullMarket;
+  if (!market || typeof market !== "object") return null;
+  if (typeof market.listings !== "number" || typeof market.value !== "number") return null;
+  if (!Number.isFinite(market.listings) || !Number.isFinite(market.value)) return null;
+  return { listings: market.listings, value: market.value };
 }
 
 function priceHistoryOf(listings) {
@@ -172,9 +196,13 @@ function compactGroup(files) {
 
   const keptByCode = new Map();
   const prepared = [];
+  let missingFullMarket = 0;
   for (const file of files) {
     file.touched = false;
     const original = file.data.listings;
+    const stored = storedFullMarket(file.data);
+    const fullMarket = stored ?? (file.data.deduped === true ? null : fullMarketOf(original));
+    if (!fullMarket) missingFullMarket += 1;
     const already = file.data.deduped === true && Array.isArray(file.data.priceHistory);
     const priceHistory = already ? file.data.priceHistory : priceHistoryOf(original);
     const kept = [];
@@ -197,7 +225,12 @@ function compactGroup(files) {
       keptByCode.set(code, { row, file });
       kept.push(row);
     }
-    prepared.push({ file, kept, dropped, priceHistory, before: original.length });
+    prepared.push({ file, kept, dropped, priceHistory, fullMarket, hadFullMarket: stored != null, before: original.length });
+  }
+  if (missingFullMarket) {
+    console.log(
+      `  ${missingFullMarket} capture(s) já enxutos sem fullMarket. Esses pontos do gráfico só acertam se o JSON original for compactado de novo.`,
+    );
   }
 
   let markedRemoved = 0;
@@ -217,7 +250,7 @@ function compactGroup(files) {
 
   const reports = [];
   for (const item of prepared) {
-    const changed = item.dropped > 0 || item.file.data.deduped !== true || item.file.touched;
+    const changed = item.dropped > 0 || item.file.data.deduped !== true || item.file.touched || (item.fullMarket != null && !item.hadFullMarket);
     let bytesAfter = item.file.bytes;
     if (changed) {
       const next = {
@@ -227,6 +260,7 @@ function compactGroup(files) {
         deduped: true,
         priceHistory: item.priceHistory,
       };
+      if (item.fullMarket) next.fullMarket = item.fullMarket;
       const body = `${JSON.stringify(next)}\n`;
       bytesAfter = Buffer.byteLength(body);
       if (write) {

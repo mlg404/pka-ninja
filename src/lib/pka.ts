@@ -94,6 +94,8 @@ export type PkaSnapshot = {
    */
   deduped: boolean;
   priceHistory: SnapshotPrices[] | null;
+  /** Listed value of the whole capture, saved before duplicate listings were removed. */
+  fullMarketValue: number | null;
   offers: PkaOffer[];
 };
 
@@ -345,8 +347,17 @@ export function parsePkaSnapshot(data: unknown, file = ""): PkaSnapshot | null {
     complete: snapshotComplete(data),
     deduped,
     priceHistory: deduped ? parsePriceHistory((data as { priceHistory?: unknown }).priceHistory) : null,
+    fullMarketValue: parseFullMarketValue(data),
     offers,
   };
+}
+
+function parseFullMarketValue(data: unknown): number | null {
+  if (!data || typeof data !== "object") return null;
+  const market = (data as { fullMarket?: unknown }).fullMarket;
+  if (!market || typeof market !== "object") return null;
+  const value = (market as { value?: unknown }).value;
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 
 function parsePriceHistory(value: unknown): SnapshotPrices[] | null {

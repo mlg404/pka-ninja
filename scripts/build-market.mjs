@@ -29,6 +29,7 @@ function loadPka() {
 const AGGREGATE = "pka_market.json";
 
 function listedValue(snapshot) {
+  if (typeof snapshot.fullMarketValue === "number") return snapshot.fullMarketValue;
   let sum = 0;
   for (const offer of snapshot.offers) {
     if (offer.price > 0) sum += offer.price * Math.max(1, offer.count);
