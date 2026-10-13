@@ -17,5 +17,4 @@ rsync -a --delete \
   "$ROOT/dist/" "$SITE/"
 
 echo "Site atualizado em $SITE. A pasta data não foi alterada."
-echo "Market agregado: npm run build-market"
-echo "Enxugar captures: npm run compact-market -- --write"
+echo "Arquivos do site: npm run build-site"

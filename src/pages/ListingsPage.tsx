@@ -7,7 +7,7 @@ import { Pagination } from "../components/Pagination";
 import { SearchInput } from "../components/SearchInput";
 import { SortSelect } from "../components/SortSelect";
 import { formatCount } from "../lib/format";
-import { useMarket } from "../lib/market";
+import { useMarket, useRemovedOffers } from "../lib/market";
 import {
   fold,
   matchesExpired,
@@ -30,11 +30,16 @@ function parseExpired(value: string | null): ExpiredFilter {
 const LISTING_SORT = { sort: "seen", dir: "desc" } as const;
 
 export function ListingsPage() {
-  const { offers, snapshots, loading, error } = useMarket();
+  const { offers: liveOffers, snapshots, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const q = params.get("q") ?? "";
   const cat = parsePkaCategory(params.get("cat"));
   const expired = parseExpired(params.get("exp"));
+  const removed = useRemovedOffers(expired !== "active");
+  const offers = useMemo(
+    () => (expired === "active" ? liveOffers : [...liveOffers, ...removed.offers]),
+    [expired, liveOffers, removed.offers],
+  );
   const { sort, dir } = parseOfferSort(params.get("sort"), params.get("dir"), LISTING_SORT);
   const page = Number(params.get("page") || "1") || 1;
 
@@ -71,8 +76,10 @@ export function ListingsPage() {
     setParams(copy, { replace });
   }
 
-  if (loading) return <p className="py-16 text-center text-slate-400">Carregando listagens…</p>;
-  if (error) return <p className="py-16 text-center text-rose-400">{error}</p>;
+  if (loading || (expired !== "active" && removed.loading)) {
+    return <p className="py-16 text-center text-slate-400">Carregando listagens…</p>;
+  }
+  if (error || removed.error) return <p className="py-16 text-center text-rose-400">{error || removed.error}</p>;
 
   return (
     <div className="space-y-4">
@@ -83,7 +90,7 @@ export function ListingsPage() {
           {formatCount(filtered.length)} anúncios
           {expired === "active" ? " no market atual" : " no histórico"}.
           {snapshots.length > 1
-            ? " O que sumiu do capture mais novo entra como vendido ou removido."
+            ? " O que saiu do market nos últimos 7 dias entra como vendido ou removido."
             : " Com um capture só, ainda não dá para marcar o que saiu."}
         </p>
       </div>

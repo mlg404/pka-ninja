@@ -8,9 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "sync-data": "node scripts/sync-data.mjs",
-    "build-market": "node scripts/build-market.mjs",
-    "publish": "bash scripts/publish.sh",
-    "compact-market": "node scripts/compact-market.mjs"
+    "build-site": "node scripts/build-site.mjs",
+    "publish": "bash scripts/publish.sh"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

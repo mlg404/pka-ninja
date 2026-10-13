@@ -132,7 +132,7 @@ export type PkaSnapshot = {
   server: string;
   complete: boolean;
   /**
-   * True after `compact-market` removed listings already stored in an earlier file.
+   * True when this file already dropped listings seen in an earlier capture.
    * A deduped file is not a full census of the market.
    */
   deduped: boolean;

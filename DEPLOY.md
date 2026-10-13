@@ -20,12 +20,9 @@ Dentro de `/opt/pka-ninja`, estes comandos leem e gravam direto em `/var/www/pka
 
 ```bash
 cd /opt/pka-ninja
-npm run build-market
-npm run compact-market -- --write
+npm run build-site
 ```
 
-`build-market` junta os captures em `pka_market.json` (e nos arquivos `.gz` e `.br`). Esse arquivo não entra no repositório de dados, então o pull de 5 minutos continua normal.
+`build-site` lê os `pka_market-*.json` crus do repositório de dados e grava `pka_live.json`, `pka_history.json` e `pka_removed.json`. Não altera os captures. Esses arquivos não entram no repositório de dados, então o pull de 5 minutos continua normal.
 
-Antes do primeiro publish do site novo, rode o `build-market`. O site só abre `/data/pka_market.json`. Enquanto o publish não rodar, o site que está no ar continua o atual.
-
-`compact-market -- --write` reescreve os JSON de capture que o repositório de dados versiona. Se o pull automático receber a mesma alteração nesses arquivos, o `git pull --ff-only` pode falhar.
+O site abre `/data/pka_live.json`. O gráfico de um item baixa `/data/pka_history.json`. O filtro de saídas baixa `/data/pka_removed.json`. Enquanto o `build-site` não rodar no servidor, o site novo não tem o que mostrar.

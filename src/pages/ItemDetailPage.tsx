@@ -6,7 +6,7 @@ import { ListingTable } from "../components/ListingTable";
 import { SortSelect } from "../components/SortSelect";
 import { Sparkline } from "../components/Sparkline";
 import { formatCount, formatFullMoney, formatIso, formatMoney, formatPct } from "../lib/format";
-import { useMarket } from "../lib/market";
+import { useItemHistory, useMarket, useRemovedOffers } from "../lib/market";
 import { fold, matchesExpired, pkaCategoryLabel, type ExpiredFilter } from "../lib/pka";
 import { LISTING_SORT_OPTIONS, nextSort, parseOfferSort, sortPatch, sortPkaOffers } from "../lib/sort";
 
@@ -19,25 +19,28 @@ export function ItemDetailPage() {
   const { name = "" } = useParams();
   const itemName = decodeURIComponent(name);
   const wanted = fold(itemName);
-  const { items, offers, snapshots, loading, error } = useMarket();
+  const { items, offers: liveOffers, snapshots, loading, error } = useMarket();
   const [params, setParams] = useSearchParams();
   const expired = parseExpired(params.get("exp"));
+  const removed = useRemovedOffers(expired !== "active");
   const { sort, dir } = parseOfferSort(params.get("sort"), params.get("dir"), DETAIL_SORT);
 
   const item = items.find((row) => fold(row.name) === wanted);
+  const history = useItemHistory(item?.name ?? "");
   const rows = useMemo(() => {
+    const offers = expired === "active" ? liveOffers : [...liveOffers, ...removed.offers];
     const matched = offers.filter((offer) => fold(offer.itemName) === wanted && matchesExpired(offer, expired));
     return sortPkaOffers(matched, sort, dir);
-  }, [offers, wanted, expired, sort, dir]);
+  }, [liveOffers, removed.offers, wanted, expired, sort, dir]);
   const series = useMemo(
     () =>
-      (item?.history ?? []).map((point) => ({
+      history.points.map((point) => ({
         t: point.t * 1000,
         median: point.median,
         min: point.min,
         listings: point.listings,
       })),
-    [item],
+    [history.points],
   );
 
   function patch(next: Record<string, string | null>) {
@@ -86,6 +89,8 @@ export function ItemDetailPage() {
         )}
       </div>
 
+      {history.loading && <p className="text-sm text-slate-400">Carregando histórico de preço…</p>}
+      {history.error && <p className="text-sm text-rose-400">{history.error}</p>}
       {series.length > 1 && (
         <section className="rounded-xl border border-line bg-panel p-4">
           <div className="mb-3 flex items-center justify-between gap-3">
@@ -143,6 +148,10 @@ export function ItemDetailPage() {
           />
         </div>
       </div>
+      {expired !== "active" && removed.loading && (
+        <p className="text-sm text-slate-400">Carregando anúncios que saíram nos últimos 7 dias…</p>
+      )}
+      {removed.error && <p className="text-sm text-rose-400">{removed.error}</p>}
       <ListingTable
         rows={rows}
         sort={sort}

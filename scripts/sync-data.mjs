@@ -39,7 +39,7 @@ const boostPlain = resolve(publicDataDir, "pka_boost.json");
 if (existsSync(boostPlain)) archiveCapture(boostPlain, "pka_boost", publicDataDir);
 archiveCapture(resolve(sourceDir, "pka_boost.json"), "pka_boost", publicDataDir);
 
-const keep = new Set(["pka_market.json", "pka_market.json.gz", "pka_market.json.br"]);
+const keep = new Set(["pka_live.json", "pka_history.json", "pka_removed.json"]);
 for (const name of readdirSync(publicDataDir)) {
   if (keep.has(name)) continue;
   if (name.startsWith("pka_boost-") && (name.endsWith(".json") || name.endsWith(".json.gz") || name.endsWith(".json.br"))) continue;
@@ -48,7 +48,7 @@ for (const name of readdirSync(publicDataDir)) {
   console.log(`removed ${name}`);
 }
 
-const built = spawnSync(process.execPath, [resolve(root, "scripts/build-market.mjs")], {
+const built = spawnSync(process.execPath, [resolve(root, "scripts/build-site.mjs")], {
   stdio: "inherit",
 });
 if (built.status) process.exit(built.status ?? 1);

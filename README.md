@@ -15,15 +15,33 @@ npm run dev
 
 Abre `http://localhost:5174`.
 
-O `sync-data` copia o capture novo para `data/captures/` e gera `public/data/pka_market.json`. O site baixa só esse arquivo. Os JSON brutos não ficam na pasta pública.
+O site baixa `pka_live.json` na entrada. O gráfico de um item baixa `pka_history.json`. O filtro de anúncios que saíram baixa `pka_removed.json`.
+
+## Atualizar os arquivos do market
+
+Os captures crus (`pka_market-*.json`) continuam sendo a fonte. O comando abaixo só gera os três arquivos que o site abre e não altera os originais.
+
+Na máquina local, com os JSON em `public/data` ou em `data/captures`:
 
 ```bash
-npm run build-market
-npm run compact-market
-npm run compact-market -- --write
+cd pka-ninja
+npm run build-site
 ```
 
-O deploy no servidor está em [DEPLOY.md](DEPLOY.md).
+No servidor, os captures ficam em `/var/www/pka.ninja/data`. Rode dentro do código publicado:
+
+```bash
+cd /opt/pka-ninja
+npm run build-site
+```
+
+Isso grava, ao lado dos captures:
+
+- `pka_live.json` — quadro atual e valor do market no tempo
+- `pka_history.json` — série de preço por item
+- `pka_removed.json` — anúncios que saíram nos últimos 7 dias
+
+O deploy do site está em [DEPLOY.md](DEPLOY.md).
 
 ## O que o site mostra
 
