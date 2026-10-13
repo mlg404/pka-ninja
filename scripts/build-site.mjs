@@ -136,6 +136,20 @@ function appendPoints(state, t, points) {
   }
 }
 
+function foldDeduped(state, snap) {
+  for (const offer of snap.offers) {
+    if (!offer.itemCode) continue;
+    if (offer.removed) {
+      state.live.delete(offer.itemCode);
+      state.removed.set(offer.itemCode, { offer, at: offer.seenAt || snap.t });
+    } else {
+      state.removed.delete(offer.itemCode);
+      state.live.set(offer.itemCode, offer);
+    }
+  }
+  pruneRemoved(state, snap.t);
+}
+
 function applyCensus(state, snap) {
   const next = new Map();
   for (const offer of snap.offers) {
@@ -357,6 +371,7 @@ for (const name of names) {
         value: snap.fullMarketValue,
       });
     }
+    foldDeduped(state, snap);
     state.used += 1;
     used += 1;
   } else if (census) {
